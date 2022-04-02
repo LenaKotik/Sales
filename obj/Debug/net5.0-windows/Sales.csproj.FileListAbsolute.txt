@@ -21,3 +21,13 @@ D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\Aspose.Imaging.dll
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.DeviceSelectionForm.resources
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.PrintForm.resources
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.csproj.CopyComplete
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\Magick.NET-Q8-AnyCPU.dll
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\Magick.NET.Core.dll
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\linux-arm64\native\Magick.Native-Q8-arm64.dll.so
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\linux-musl-x64\native\Magick.Native-Q8-x64.dll.so
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\linux-x64\native\Magick.Native-Q8-x64.dll.so
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\osx-x64\native\Magick.Native-Q8-x64.dll.dylib
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-arm64\native\Magick.Native-Q8-arm64.dll
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x64\native\Magick.Native-Q8-x64.dll
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x86\native\Magick.Native-Q8-x86.dll
+D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.AdminForm.resources

@@ -18,6 +18,62 @@
           }
         }
       },
+      "Magick.NET-Q8-AnyCPU/11.0.0": {
+        "dependencies": {
+          "Magick.NET.Core": "11.0.0"
+        },
+        "runtime": {
+          "lib/netstandard21/Magick.NET-Q8-AnyCPU.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.0.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/Magick.Native-Q8-arm64.dll.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/Magick.Native-Q8-x64.dll.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/Magick.Native-Q8-x64.dll.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/Magick.Native-Q8-x64.dll.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/Magick.Native-Q8-arm64.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "7.1.0.28"
+          },
+          "runtimes/win-x64/native/Magick.Native-Q8-x64.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "7.1.0.28"
+          },
+          "runtimes/win-x86/native/Magick.Native-Q8-x86.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "7.1.0.28"
+          }
+        }
+      },
+      "Magick.NET.Core/11.0.0": {
+        "runtime": {
+          "lib/netstandard21/Magick.NET.Core.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.0.0"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/5.0.0": {},
       "Microsoft.Win32.SystemEvents/5.0.0": {
         "dependencies": {
@@ -91,6 +147,20 @@
       "sha512": "sha512-dlDna+0zWja7SSZ78dpUo1Mj9N1JiTtffxzEGcHGM9NUFUiSznVSk6CGFgQY2SBHsbEYLPcHzVQdRWUDAOW+HQ==",
       "path": "aspose.imaging/22.3.0",
       "hashPath": "aspose.imaging.22.3.0.nupkg.sha512"
+    },
+    "Magick.NET-Q8-AnyCPU/11.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mUTCErN3KsauOrakOxNwRTii+1XSbN7ru2R7wuy5BzIasGDHRanRGFH2OgZKsSQPxfdc9lj71olUhf1bbU/FbQ==",
+      "path": "magick.net-q8-anycpu/11.0.0",
+      "hashPath": "magick.net-q8-anycpu.11.0.0.nupkg.sha512"
+    },
+    "Magick.NET.Core/11.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zCRE8N9PtEqTeHuxxadKNcU5FC/UuqJ/LZTunOHX4qECYjESddATK8WPTrauoLYQfnc5SyRLR5SIv/OQJAiLyA==",
+      "path": "magick.net.core/11.0.0",
+      "hashPath": "magick.net.core.11.0.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/5.0.0": {
       "type": "package",

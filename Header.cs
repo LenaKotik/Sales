@@ -22,41 +22,103 @@ namespace Sales
             Brushes.Chocolate,
             Brushes.Olive,
             Brushes.Aquamarine,
+            Brushes.Green,
+            Brushes.Blue,
+            Brushes.Azure,
+            Brushes.BlanchedAlmond,
+            Brushes.Bisque,
         };
         /// <summary>
         /// index of displayed user's profile color
         /// </summary>
         int colorID;
-        const int profileHoverDarkening = 10;
+        const int HoverDarkening = 10;
+        bool DropdownOpen;
         public Header()
         {
             InitializeComponent();
+            BackDrawPanel.Paint += DrawBackArrow;
+            BackDrawPanel.MouseEnter += Hover;
+            BackDrawPanel.MouseLeave += Hovernt;
+            BackDrawPanel.MouseClick += GoBack;
             Profile.Paint += DrawProfile;
-            Profile.MouseEnter += ProfileHover;
-            Profile.MouseLeave += ProfileHovernt;
-            //Profile.MouseClick;
+            Profile.MouseEnter += Hover;
+            Profile.MouseLeave += Hovernt;
+            Profile.MouseClick += ProfileClick;
+            AdminButton.Click += Admin;
+            LogOutButton.Click += LogOut;
+            Size = new Size(1400, 112);
+            ButtonsPanel.Visible = false;
+            DropdownOpen = false;
         }
-
-        private void ProfileHovernt(object sender, EventArgs e)
+        private void GoBack(object sender, EventArgs e)
         {
-            Color c = Profile.BackColor;
-            c = Color.FromArgb(c.R + profileHoverDarkening, c.G + profileHoverDarkening, c.B + profileHoverDarkening);
-            Profile.BackColor = c; // structs are passed by value, not by reference
+            Form previous = ParentForm.OwnedForms[0];
+            ParentForm.RemoveOwnedForm(previous);
+            previous.Show();
+            ParentForm.Close();
         }
-
-        private void ProfileHover(object sender, EventArgs e)
+        private void DrawBackArrow(object sender, PaintEventArgs e)
         {
-            Color c = Profile.BackColor;
-            c = Color.FromArgb(c.R - profileHoverDarkening, c.G - profileHoverDarkening, c.B - profileHoverDarkening);
-            Profile.BackColor = c; // structs are passed by value, not by reference
+            const int offset = 1;
+            const int offset2 = 5;
+            Pen p = SystemPens.ControlDarkDark;
+            Rectangle r = e.ClipRectangle;
+            // offset is doubled cuz we need to balance out rect's size after adding offset to the position, and then reduce it by the offset
+            r = new Rectangle(r.X + offset, r.Y + offset, r.Width - 2*offset, r.Height - 2*offset); // make rect a bit smaller, so that the circle fits well
+            e.Graphics.DrawEllipse(p, r); // a circle
+            r = new Rectangle(r.X + offset2, r.Y + offset2, r.Width - 2*offset2, r.Height - 2*offset2); // make rect even smaller, so that the arrow fits well into the circle
+            e.Graphics.DrawLine(p, r.X, r.Y+r.Height/2, r.X + r.Width, r.Y+r.Height/2); // it's diameter, parallel to X axis
+            e.Graphics.DrawLine(p, r.X, r.Y+r.Height/2, r.X + r.Width / 2, r.Y); // right-center point to up-center point
+            e.Graphics.DrawLine(p, r.X, r.Y+r.Height/2, r.X + r.Width / 2, r.Y+r.Height); // right-center point to bottom-center point
         }
-
+        private void LogOut(object sender, EventArgs e)
+        {
+            Program.user = null;
+            AuthorizationForm form = new AuthorizationForm();
+            form.AddOwnedForm(ParentForm);
+            form.Show();
+            ParentForm.Hide();
+        }
+        private void Admin(object sender, EventArgs e)
+        {
+            if (!User.IsAdmin) return; // just in case
+            AdminForm form = new AdminForm();
+            form.AddOwnedForm(ParentForm);
+            form.Show();
+            ParentForm.Hide();
+        }
+        private void ProfileClick(object sender, MouseEventArgs e)
+        {
+            DropdownOpen = !DropdownOpen;
+            ButtonsPanel.Visible = DropdownOpen;
+            if (DropdownOpen)
+                Size = new Size(1400, 162);
+            else
+                Size = new Size(1400, 112);
+        }
+        private void Hovernt(object sender, EventArgs e)
+        {
+            Panel p = (Panel)sender;
+            Color c = p.BackColor;
+            c = Color.FromArgb(c.R + HoverDarkening, c.G + HoverDarkening, c.B + HoverDarkening);
+            p.BackColor = c; // structs are passed by value, not by reference
+        }
+        private void Hover(object sender, EventArgs e)
+        {
+            Panel p = (Panel)sender;
+            Color c = p.BackColor;
+            c = Color.FromArgb(c.R - HoverDarkening, c.G - HoverDarkening, c.B - HoverDarkening);
+            p.BackColor = c; // structs are passed by value, not by reference
+        }
         [EditorBrowsable(EditorBrowsableState.Never)] User _user;
         public User User 
         {   set
             {
                 if (value == null) return; // sneaky editor
                 _user = value;
+                if (!User.IsAdmin)
+                    AdminButton.Visible = false;
                 Username.Text = _user.Name;
                 colorID = _user.ProfileColorID;
             }
@@ -65,6 +127,7 @@ namespace Sales
         /// <summary>
         /// Draws the Profile circle
         /// </summary>
-        private void DrawProfile(object sender, PaintEventArgs e) => e.Graphics.FillEllipse(profileColors[colorID], e.ClipRectangle);
+        private void DrawProfile(object sender, PaintEventArgs e) 
+            => e.Graphics.FillEllipse(profileColors[colorID], e.ClipRectangle);
     }
 }

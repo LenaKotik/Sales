@@ -15,6 +15,60 @@
           "lib/net5.0/Aspose.Imaging.dll": {}
         }
       },
+      "Magick.NET-Q8-AnyCPU/11.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Magick.NET.Core": "11.0.0"
+        },
+        "compile": {
+          "lib/netstandard21/Magick.NET-Q8-AnyCPU.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard21/Magick.NET-Q8-AnyCPU.dll": {}
+        },
+        "build": {
+          "build/netstandard20/Magick.NET-Q8-AnyCPU.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/Magick.Native-Q8-arm64.dll.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-musl-x64/native/Magick.Native-Q8-x64.dll.so": {
+            "assetType": "native",
+            "rid": "linux-musl-x64"
+          },
+          "runtimes/linux-x64/native/Magick.Native-Q8-x64.dll.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-x64/native/Magick.Native-Q8-x64.dll.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-arm64/native/Magick.Native-Q8-arm64.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/Magick.Native-Q8-x64.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/Magick.Native-Q8-x86.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "Magick.NET.Core/11.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard21/Magick.NET.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard21/Magick.NET.Core.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/5.0.0": {
         "type": "package",
         "compile": {
@@ -115,6 +169,53 @@
         "lib/netstandard2.0/Aspose.Imaging.dll",
         "lib/netstandard2.0/Aspose.Imaging.xml",
         "readme.txt"
+      ]
+    },
+    "Magick.NET-Q8-AnyCPU/11.0.0": {
+      "sha512": "mUTCErN3KsauOrakOxNwRTii+1XSbN7ru2R7wuy5BzIasGDHRanRGFH2OgZKsSQPxfdc9lj71olUhf1bbU/FbQ==",
+      "type": "package",
+      "path": "magick.net-q8-anycpu/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Magick.NET.icon.png",
+        "Notice.linux-musl.txt",
+        "Notice.linux.txt",
+        "Notice.osx.txt",
+        "Notice.win.txt",
+        "build/netstandard20/Magick.NET-Q8-AnyCPU.targets",
+        "lib/netstandard20/Magick.NET-Q8-AnyCPU.dll",
+        "lib/netstandard20/Magick.NET-Q8-AnyCPU.xml",
+        "lib/netstandard21/Magick.NET-Q8-AnyCPU.dll",
+        "lib/netstandard21/Magick.NET-Q8-AnyCPU.xml",
+        "magick.net-q8-anycpu.11.0.0.nupkg.sha512",
+        "magick.net-q8-anycpu.nuspec",
+        "runtimes/linux-arm64/native/Magick.Native-Q8-arm64.dll.so",
+        "runtimes/linux-musl-x64/native/Magick.Native-Q8-x64.dll.so",
+        "runtimes/linux-x64/native/Magick.Native-Q8-x64.dll.so",
+        "runtimes/osx-x64/native/Magick.Native-Q8-x64.dll.dylib",
+        "runtimes/win-arm64/native/Magick.Native-Q8-arm64.dll",
+        "runtimes/win-x64/native/Magick.Native-Q8-x64.dll",
+        "runtimes/win-x86/native/Magick.Native-Q8-x86.dll"
+      ]
+    },
+    "Magick.NET.Core/11.0.0": {
+      "sha512": "zCRE8N9PtEqTeHuxxadKNcU5FC/UuqJ/LZTunOHX4qECYjESddATK8WPTrauoLYQfnc5SyRLR5SIv/OQJAiLyA==",
+      "type": "package",
+      "path": "magick.net.core/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Copyright.txt",
+        "Magick.NET.icon.png",
+        "lib/net20/Magick.NET.Core.dll",
+        "lib/net20/Magick.NET.Core.xml",
+        "lib/netstandard20/Magick.NET.Core.dll",
+        "lib/netstandard20/Magick.NET.Core.xml",
+        "lib/netstandard21/Magick.NET.Core.dll",
+        "lib/netstandard21/Magick.NET.Core.xml",
+        "magick.net.core.11.0.0.nupkg.sha512",
+        "magick.net.core.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/5.0.0": {
@@ -249,7 +350,8 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "Aspose.Imaging >= 22.3.0"
+      "Aspose.Imaging >= 22.3.0",
+      "Magick.NET-Q8-AnyCPU >= 11.0.0"
     ]
   },
   "packageFolders": {
@@ -302,6 +404,10 @@
           "Aspose.Imaging": {
             "target": "Package",
             "version": "[22.3.0, )"
+          },
+          "Magick.NET-Q8-AnyCPU": {
+            "target": "Package",
+            "version": "[11.0.0, )"
           }
         },
         "imports": [

@@ -18,6 +18,7 @@ namespace Sales
         {
             InitializeComponent();
             AuthButton.Click += Authorize;
+            QuitButton.Click += (o, e) => this.Close(); 
         }
         void Authorize(object sndr, EventArgs e)
 #nullable enable

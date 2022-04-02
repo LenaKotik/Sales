@@ -49,6 +49,10 @@
             "Aspose.Imaging": {
               "target": "Package",
               "version": "[22.3.0, )"
+            },
+            "Magick.NET-Q8-AnyCPU": {
+              "target": "Package",
+              "version": "[11.0.0, )"
             }
           },
           "imports": [

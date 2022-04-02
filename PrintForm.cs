@@ -8,8 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Aspose.Imaging.ImageOptions;
-using Aspose.Imaging;
+//using Aspose.Imaging;
+//using Aspose.Imaging.FileFormats.Eps;
+//using Aspose.Imaging.ImageOptions;
+using ImageMagick;
+using ImageMagick.Formats;
 
 namespace Sales
 {
@@ -29,24 +32,34 @@ namespace Sales
         {
 #nullable enable
             _pr = pr;
-            if (!Image.CanLoad(_pr.Filepath))
+            image = null;
+            return;
+            /*
+            if (!File.Exists(_pr.Filepath))
+            {
+                PreviewErr.SetError(PreviewBox, $"Изображение не найдено '{_pr.Filepath}' ");
+                image = null;
+                return;
+            }
+            FileStream imgFile = File.OpenRead(_pr.Filepath);
+            if (!EpsImage.CanLoad(imgFile))
             {
                 PreviewErr.SetError(PreviewBox, $"Не удалось загрузить изображение '{_pr.Filepath}' ");
                 image = null;
                 return;
             }
-            Image img = Image.Load(_pr.Filepath);
-            SvgOptions o = new SvgOptions();
+            EpsImage img = (EpsImage)EpsImage.Load(imgFile);
+            ImageOptionsBase o = new JpegOptions();
             if (!img.CanSave(o))
             {
                 PreviewErr.SetError(PreviewBox, $"Не удалось конвертировать изображение '{_pr.Filepath}' ");
                 image = null;
                 return;
             }
-            MemoryStream imgMem = new MemoryStream();
             img.Save(imgMem, o);
             image = System.Drawing.Image.FromStream(imgMem);
             PreviewBox.Image = image;
+            */
         }
         private void Print(object sender, EventArgs e)
         {

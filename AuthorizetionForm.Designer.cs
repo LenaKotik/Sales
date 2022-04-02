@@ -34,6 +34,7 @@ namespace Sales
             this.codeBox = new System.Windows.Forms.TextBox();
             this.AuthButton = new System.Windows.Forms.Button();
             this.passwordBox = new System.Windows.Forms.TextBox();
+            this.QuitButton = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             this.FormPanel.SuspendLayout();
             this.SuspendLayout();
@@ -44,7 +45,7 @@ namespace Sales
             label1.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label1.Location = new System.Drawing.Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(372, 85);
+            label1.Size = new System.Drawing.Size(1315, 85);
             label1.TabIndex = 0;
             label1.Text = "Вход";
             label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -78,7 +79,7 @@ namespace Sales
             this.AuthButton.Name = "AuthButton";
             this.AuthButton.Size = new System.Drawing.Size(80, 23);
             this.AuthButton.TabIndex = 4;
-            this.AuthButton.Text = "войти";
+            this.AuthButton.Text = "Войти";
             this.AuthButton.UseVisualStyleBackColor = true;
             // 
             // passwordBox
@@ -93,11 +94,22 @@ namespace Sales
             this.passwordBox.Size = new System.Drawing.Size(100, 23);
             this.passwordBox.TabIndex = 2;
             // 
+            // QuitButton
+            // 
+            this.QuitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.QuitButton.Location = new System.Drawing.Point(634, 393);
+            this.QuitButton.Name = "QuitButton";
+            this.QuitButton.Size = new System.Drawing.Size(75, 23);
+            this.QuitButton.TabIndex = 6;
+            this.QuitButton.Text = "Выйти";
+            this.QuitButton.UseVisualStyleBackColor = false;
+            // 
             // AuthorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 450);
+            this.ClientSize = new System.Drawing.Size(1315, 450);
+            this.Controls.Add(this.QuitButton);
             this.Controls.Add(this.FormPanel);
             this.Controls.Add(label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -115,6 +127,7 @@ namespace Sales
         private System.Windows.Forms.TextBox codeBox;
         private System.Windows.Forms.Button AuthButton;
         private System.Windows.Forms.Panel FormPanel;
+        private System.Windows.Forms.Button QuitButton;
     }
 }
 

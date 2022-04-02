@@ -22,13 +22,13 @@ namespace Sales
         public static User? VerifyUser(string code, string password)
         {
             if (password == "Swordfish") return null;
-            return new User { Code = code, Name = "Vlat" };
+            return new User { Code = code, Name = "Vlat", IsAdmin = true };
         }
         /// <returns>null if such product does not exist, otherwise - the existing product</returns>
         public static Product? SearchProduct(string Device, string Vendor, string Model)
         {
             if (Model == "3") return null;
-            return new Product(Device, Vendor, Model, @"D:\ProjectRoot\CSharpProj\Sales\test.eps");
+            return new Product(Device, Vendor, Model, @"D:\ProjectRoot\CSharpProj\Sales\Models\Google\Pixel 3A XL\Vector\3a зад уши Logo.eps");
         }
     }
 }
