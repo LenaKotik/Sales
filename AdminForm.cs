@@ -15,6 +15,16 @@ namespace Sales
         public AdminForm()
         {
             InitializeComponent();
+            GoBackButton.Click += GoBack;
+            AddUserButton.Click += (o, e) => new AddUserDialog().ShowDialog();
+        }
+
+        private void GoBack(object sender, EventArgs e)
+        {
+            Form last = this.OwnedForms[0];
+            this.RemoveOwnedForm(last);
+            last.Show();
+            this.Close();
         }
     }
 }

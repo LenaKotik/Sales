@@ -11,12 +11,18 @@ namespace Sales
         public string Device { set; get; }
         public string Vendor { set; get; }
         public string Model { set; get; }
+        public string Type { set; get; }
         public string Filepath { set; get; }
-        public Product(string D, string V, string M, string F)
+        public override string ToString()
+        {
+            return $"{Device}/{Vendor}/{Model}/{Type}";
+        }
+        public Product(string D, string V, string M,string T, string F)
         {
             Device = D;
             Vendor = V;
             Model = M;
+            Type = T;
             Filepath = F;
         }
     }

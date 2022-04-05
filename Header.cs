@@ -69,6 +69,7 @@ namespace Sales
             e.Graphics.DrawEllipse(p, r); // a circle
             r = new Rectangle(r.X + offset2, r.Y + offset2, r.Width - 2*offset2, r.Height - 2*offset2); // make rect even smaller, so that the arrow fits well into the circle
             e.Graphics.DrawLine(p, r.X, r.Y+r.Height/2, r.X + r.Width, r.Y+r.Height/2); // it's diameter, parallel to X axis
+            r = new Rectangle(r.X, r.Y + offset2, r.Width, r.Height - 2 * offset2); // make rect's height smaller so the arrow doesn't look to awkward 
             e.Graphics.DrawLine(p, r.X, r.Y+r.Height/2, r.X + r.Width / 2, r.Y); // right-center point to up-center point
             e.Graphics.DrawLine(p, r.X, r.Y+r.Height/2, r.X + r.Width / 2, r.Y+r.Height); // right-center point to bottom-center point
         }

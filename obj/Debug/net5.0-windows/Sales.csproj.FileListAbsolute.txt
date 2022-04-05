@@ -17,8 +17,6 @@ D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\ref\Sales.dll
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.pdb
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.genruntimeconfig.cache
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.Header.resources
-D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\Aspose.Imaging.dll
-D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.DeviceSelectionForm.resources
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.PrintForm.resources
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.csproj.CopyComplete
 D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\Magick.NET-Q8-AnyCPU.dll
@@ -31,3 +29,4 @@ D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-arm64\nati
 D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x64\native\Magick.Native-Q8-x64.dll
 D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x86\native\Magick.Native-Q8-x86.dll
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.AdminForm.resources
+D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.AddUserDialog.resources

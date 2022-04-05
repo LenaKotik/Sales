@@ -11,6 +11,7 @@ namespace Sales
     {
         public string Name { set; get; }
         public string Code { set; get; }
+        public string Password { set; get; }
         public bool IsAdmin { set; get; }
         /// <summary>
         /// index of the color do draw the profile with, calculated from user's code

@@ -35,7 +35,7 @@ namespace Sales
             Program.user = u;
             // get the profile color index, based on the user's code
             Program.user.ProfileColorID = ((int)codeBox.Text.Average<char>(x => (double)x))%Header.profileColors.Length;
-            DeviceSelectionForm form = new DeviceSelectionForm();
+            PrintForm form = new PrintForm();
             form.AddOwnedForm(this);
             form.Show();
             this.Hide();

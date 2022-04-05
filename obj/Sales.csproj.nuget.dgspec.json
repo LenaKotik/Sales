@@ -46,10 +46,6 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
-            "Aspose.Imaging": {
-              "target": "Package",
-              "version": "[22.3.0, )"
-            },
             "Magick.NET-Q8-AnyCPU": {
               "target": "Package",
               "version": "[11.0.0, )"
