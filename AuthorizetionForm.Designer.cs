@@ -57,7 +57,7 @@ namespace Sales
             this.FormPanel.Controls.Add(this.codeBox);
             this.FormPanel.Controls.Add(this.AuthButton);
             this.FormPanel.Controls.Add(this.passwordBox);
-            this.FormPanel.Location = new System.Drawing.Point(575, 238);
+            this.FormPanel.Location = new System.Drawing.Point(573, 206);
             this.FormPanel.Name = "FormPanel";
             this.FormPanel.Size = new System.Drawing.Size(200, 100);
             this.FormPanel.TabIndex = 5;
@@ -75,7 +75,7 @@ namespace Sales
             // 
             // AuthButton
             // 
-            this.AuthButton.Location = new System.Drawing.Point(57, 61);
+            this.AuthButton.Location = new System.Drawing.Point(56, 61);
             this.AuthButton.Name = "AuthButton";
             this.AuthButton.Size = new System.Drawing.Size(80, 23);
             this.AuthButton.TabIndex = 4;

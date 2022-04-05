@@ -23,6 +23,7 @@ namespace Sales
         public PrintForm()
         {
             InitializeComponent();
+            this.ScaleToResolution();
             Head.User = Program.user;
             PrintButton.Click += Print;
             DeviceBox.DataSource = DataProvider.GetDeviceData();
@@ -70,6 +71,7 @@ namespace Sales
                 DeviceLabel.Text = "Устройство:\n" + Device;
                 VendorLabel.Text = "Производитель:\n" + Vendor;
                 ModelLabel.Text = "Модель:\n" + Model;
+                TypeLabel.Text = "Тип:\n" + Type;
             }
             else
                 PreviewErr.SetError(PreviewBox, "Продукт по указанным данным не найден");

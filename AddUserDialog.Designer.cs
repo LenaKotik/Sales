@@ -183,10 +183,7 @@ namespace Sales
         private System.Windows.Forms.TextBox PassBox2;
         private System.Windows.Forms.TextBox PassBox;
         private System.Windows.Forms.TextBox CodeBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox IsAdminFlag;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.Button CancelvButton;

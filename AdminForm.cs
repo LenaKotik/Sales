@@ -15,6 +15,8 @@ namespace Sales
         public AdminForm()
         {
             InitializeComponent();
+            this.ScaleToResolution();
+            HistoryView.DataSource = History.GetData();
             GoBackButton.Click += GoBack;
             AddUserButton.Click += (o, e) => new AddUserDialog().ShowDialog();
         }

@@ -18,7 +18,7 @@ namespace Sales
     }
     static class History
     {
-        static Stack<Entry> _data;
+        static Stack<Entry> _data = new Stack<Entry>();
         public static void Add(Product pr) => _data.Push(new Entry() // syntax moment
         {
             time = DateTime.Now,
