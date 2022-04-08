@@ -30,3 +30,10 @@ D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x64\native
 D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x86\native\Magick.Native-Q8-x86.dll
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.AdminForm.resources
 D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.AddUserDialog.resources
+D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.AddProductDialog.resources
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

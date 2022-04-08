@@ -27,6 +27,21 @@ namespace Sales
             string code = codeBox.Text;
             string pwd = passwordBox.Text;
 
+            if (code.Length != 6)
+            {
+                MessageBox.Show("Код продавца должен быть 6-значным", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (pwd.Length > 30)
+            {
+                MessageBox.Show("Пароль не может превышать 30 символов", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (pwd == "")
+            {
+                MessageBox.Show("Введите пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             User? u = DataProvider.VerifyUser(code, pwd);
             if (u == null)
             { 

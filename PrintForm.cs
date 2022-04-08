@@ -24,6 +24,7 @@ namespace Sales
         {
             InitializeComponent();
             this.ScaleToResolution();
+            MagickNET.SetGhostscriptDirectory("GhostScript");
             Head.User = Program.user;
             PrintButton.Click += Print;
             DeviceBox.DataSource = DataProvider.GetDeviceData();
@@ -31,7 +32,6 @@ namespace Sales
             VendorBox.SelectedValueChanged += (o, e) => ModelBox.DataSource = DataProvider.GetModelData(DeviceBox.SelectedValue?.ToString()??"", VendorBox.SelectedValue?.ToString()??"");
             ModelBox.SelectedValueChanged += (o, e) => TypeBox.DataSource = DataProvider.GetTypeData(DeviceBox.SelectedValue?.ToString()??"", VendorBox.SelectedValue?.ToString()??"", ModelBox.SelectedValue?.ToString()??"");
             SearchButton.Click += Search;
-            MagickNET.SetGhostscriptDirectory("GhostScript");
         }
 #nullable enable
         public void LoadImage(Product _pr)

@@ -1,0 +1,10 @@
+CREATE TABLE Users(
+		id INT IDENTITY NOT NULL,
+		username NVARCHAR(30) NOT NULL DEFAULT(''),
+		code VARCHAR(7) NOT NULL,
+		password NVARCHAR(30) NOT NULL,
+		is_admin BIT NOT NULL DEFAULT(0),
+		CONSTRAINT UN_Users_code UNIQUE(code),
+		CONSTRAINT UN_Users_password UNIQUE(password),
+		CONSTRAINT PK_Users_id PRIMARY KEY(id)
+);

@@ -21,49 +21,70 @@ namespace Sales
         }
         private void Submit(object sender, EventArgs e)
         {
+            string
+                code = CodeBox.Text,
+                name = NameBox.Text,
+                pass = PassBox.Text,
+                pass2 = PassBox2.Text;
+            string
+                codeErr = "",
+                nameErr = "",
+                passErr = "",
+                pass2Err = "";
+
             bool anyErr = false;
-            string code = CodeBox.Text, pass = PassBox.Text, pass2 = PassBox2.Text, name = NameBox.Text;
-            if (code == "")
+            if (code.Length != 6)
             {
                 anyErr = true;
-                AddUserErr.SetError(CodeBox, "Введите значение");
+                codeErr += "Введите 6-значный код;";
             }
-            else AddUserErr.SetError(CodeBox, "");
+            if (code.Any(x => x < '0' || x > '9')) // if any char is beyond [0,9] char range
+            {
+                anyErr = true;
+                codeErr += "Код должен состоять из цифр;";
+            }
             if (pass == "")
             {
                 anyErr = true;
-                AddUserErr.SetError(PassBox, "Введите значение");
+                passErr += "Введите значение;";
             }
-            else AddUserErr.SetError(PassBox, "");
             if (pass2 == "")
             {
                 anyErr = true;
-                AddUserErr.SetError(PassBox2, "Введите значение");
+                pass2Err += "Введите значение;";
             }
-            else AddUserErr.SetError(PassBox2, "");
             if (name == "")
             {
                 anyErr = true;
-                AddUserErr.SetError(NameBox, "Введите значение");
+                nameErr += "Введите значение;";
             }
-            else AddUserErr.SetError(NameBox, "");
+            if (pass.Length > 30)
+            {
+                anyErr = true;
+                passErr += "Пароль не должен быть длиннее 30 сиволов;";
+            }
             if (pass != pass2)
             {
                 anyErr = true;
-                AddUserErr.SetError(PassBox2, "Пароли не совпадают");
+                pass2Err += "Пароли не совпадают;";
             }
-            else if (pass2 != "") AddUserErr.SetError(PassBox2, "");
             if (DataProvider.VerifyUser(code, pass) != null)
             {
                 anyErr = true;
-                AddUserErr.SetError(CodeBox, "Такой пользователь уже зарегестрирован");
+                codeErr += "Такой пользователь уже зарегестрирован;";
             }
-            else if (code != "")AddUserErr.SetError(CodeBox, "");
             if (!anyErr)
             {
                 User u = new User() { Code = code, Name = name, IsAdmin = IsAdminFlag.Checked, Password = pass };
                 DataProvider.AddUser(u);
                 this.Close();
+            }
+            else
+            {
+                AddUserErr.SetError(CodeBox, codeErr);
+                AddUserErr.SetError(NameBox, nameErr);
+                AddUserErr.SetError(PassBox, passErr);
+                AddUserErr.SetError(PassBox2, pass2Err);
             }
         }
     }

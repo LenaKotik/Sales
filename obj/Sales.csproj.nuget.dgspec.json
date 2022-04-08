@@ -49,6 +49,10 @@
             "Magick.NET-Q8-AnyCPU": {
               "target": "Package",
               "version": "[11.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
             }
           },
           "imports": [

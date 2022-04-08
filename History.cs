@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -15,16 +16,17 @@ namespace Sales
         public string userCode { set; get; }
         [DisplayName("Модель")]
         public string product { set; get; }
+        public override string ToString() => 
+            $"Пользователь [{userCode}] распечатал \'{product}\' в {time} по МСК";
     }
     static class History
     {
-        static Stack<Entry> _data = new Stack<Entry>();
+        public static Stack<Entry> _data = new Stack<Entry>();
         public static void Add(Product pr) => _data.Push(new Entry() // syntax moment
         {
-            time = DateTime.Now,
+            time = DateTime.UtcNow.AddHours(3), // МСК = UTC + 3
             userCode = Program.user.Code,
             product = pr.ToString()
         });
-        static public Stack<Entry> GetData() => _data;
     }
 }
