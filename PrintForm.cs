@@ -22,9 +22,13 @@ namespace Sales
         Product prod_cache;
         public PrintForm()
         {
+            int sideOffset = 500;
+            int topOffset = 100;
             InitializeComponent();
-            this.ScaleToResolution();
             MagickNET.SetGhostscriptDirectory("GhostScript");
+            this.CenterControl(PreviewBox, new Point(0, topOffset));
+            this.CenterControl(LeftPanel, new Point(-sideOffset, topOffset));
+            this.CenterControl(RightPanel, new Point(sideOffset, topOffset));
             Head.User = Program.user;
             PrintButton.Click += Print;
             DeviceBox.DataSource = DataProvider.GetDeviceData();

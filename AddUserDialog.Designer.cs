@@ -167,7 +167,6 @@ namespace Sales
             this.Controls.Add(label1);
             this.Controls.Add(this.AddButton);
             this.Name = "AddUserDialog";
-            this.Opacity = 0.8D;
             this.ShowInTaskbar = false;
             this.Text = "Добавить Пользователя";
             this.TopMost = true;

@@ -10,17 +10,15 @@ namespace Sales
 {
     static class Extensions
     {
-        public static void ScaleToResolution(this Form frm)
+        /// <summary>
+        /// Allows for resolution independent control placement
+        /// </summary>
+        /// <param name="c">a control to position at the center of the screen</param>
+        /// <param name="offsetFromCenter">an offset applied to the control</param>
+        public static void CenterControl(this Form frm, Control c, Point offsetFromCenter)
         {
-            float width_ratio = (Screen.PrimaryScreen.Bounds.Width / 1280);
-            float heigh_ratio = (Screen.PrimaryScreen.Bounds.Height / 800f);
-            SizeF scale = new SizeF(width_ratio, heigh_ratio);
-            frm.Scale(scale);
-            //And for font size
-            foreach (Control control in frm.Controls)
-            {
-                control.Font = new Font(familyName: "Microsoft Sans Serif", control.Font.SizeInPoints * heigh_ratio * width_ratio);
-            }
+            Rectangle p = Screen.GetWorkingArea(frm);
+            c.Location = new Point(p.X + p.Width / 2 - c.Width / 2 + offsetFromCenter.X, p.Y + p.Height / 2 - c.Height / 2 + offsetFromCenter.Y);
         }
     }
 }

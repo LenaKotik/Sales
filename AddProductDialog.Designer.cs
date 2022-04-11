@@ -206,6 +206,7 @@ namespace Sales
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(496, 166);
+            this.ControlBox = false;
             this.Controls.Add(this.SubmitB);
             this.Controls.Add(this.CancelB);
             this.Controls.Add(this.LoadB);
@@ -222,7 +223,10 @@ namespace Sales
             this.Controls.Add(this.DeviceBox);
             this.Controls.Add(label1);
             this.Name = "AddProductDialog";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "AddProductDialog";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.SubmitEP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

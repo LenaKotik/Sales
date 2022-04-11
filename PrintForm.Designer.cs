@@ -41,25 +41,27 @@ namespace Sales
             this.ModelBox = new System.Windows.Forms.ComboBox();
             this.VendorBox = new System.Windows.Forms.ComboBox();
             this.DeviceBox = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.RightPanel = new System.Windows.Forms.Panel();
+            this.TypeLabel = new System.Windows.Forms.Label();
             this.DeviceLabel = new System.Windows.Forms.Label();
             this.VendorLabel = new System.Windows.Forms.Label();
             this.ModelLabel = new System.Windows.Forms.Label();
             this.TypeBox = new System.Windows.Forms.ComboBox();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.TypeLabel = new System.Windows.Forms.Label();
+            this.LeftPanel = new System.Windows.Forms.Panel();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PreviewBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PreviewErr)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.RightPanel.SuspendLayout();
+            this.LeftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
             // 
-            label3.Location = new System.Drawing.Point(112, 377);
+            label3.Location = new System.Drawing.Point(44, 210);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(121, 23);
             label3.TabIndex = 11;
@@ -68,7 +70,7 @@ namespace Sales
             // 
             // label2
             // 
-            label2.Location = new System.Drawing.Point(112, 274);
+            label2.Location = new System.Drawing.Point(44, 107);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(121, 23);
             label2.TabIndex = 9;
@@ -77,7 +79,7 @@ namespace Sales
             // 
             // label1
             // 
-            label1.Location = new System.Drawing.Point(112, 171);
+            label1.Location = new System.Drawing.Point(44, 4);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(121, 23);
             label1.TabIndex = 7;
@@ -86,7 +88,7 @@ namespace Sales
             // 
             // label4
             // 
-            label4.Location = new System.Drawing.Point(112, 472);
+            label4.Location = new System.Drawing.Point(44, 305);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(121, 23);
             label4.TabIndex = 15;
@@ -131,7 +133,7 @@ namespace Sales
             // 
             this.ModelBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ModelBox.FormattingEnabled = true;
-            this.ModelBox.Location = new System.Drawing.Point(112, 403);
+            this.ModelBox.Location = new System.Drawing.Point(44, 236);
             this.ModelBox.Name = "ModelBox";
             this.ModelBox.Size = new System.Drawing.Size(121, 23);
             this.ModelBox.TabIndex = 12;
@@ -140,7 +142,7 @@ namespace Sales
             // 
             this.VendorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.VendorBox.FormattingEnabled = true;
-            this.VendorBox.Location = new System.Drawing.Point(112, 300);
+            this.VendorBox.Location = new System.Drawing.Point(44, 133);
             this.VendorBox.Name = "VendorBox";
             this.VendorBox.Size = new System.Drawing.Size(121, 23);
             this.VendorBox.TabIndex = 10;
@@ -149,23 +151,32 @@ namespace Sales
             // 
             this.DeviceBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DeviceBox.FormattingEnabled = true;
-            this.DeviceBox.Location = new System.Drawing.Point(112, 197);
+            this.DeviceBox.Location = new System.Drawing.Point(44, 30);
             this.DeviceBox.Name = "DeviceBox";
             this.DeviceBox.Size = new System.Drawing.Size(121, 23);
             this.DeviceBox.TabIndex = 8;
             // 
-            // panel1
+            // RightPanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.TypeLabel);
-            this.panel1.Controls.Add(this.DeviceLabel);
-            this.panel1.Controls.Add(this.VendorLabel);
-            this.panel1.Controls.Add(this.ModelLabel);
-            this.panel1.Controls.Add(this.PrintButton);
-            this.panel1.Location = new System.Drawing.Point(1003, 171);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(355, 416);
-            this.panel1.TabIndex = 14;
+            this.RightPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.RightPanel.Controls.Add(this.TypeLabel);
+            this.RightPanel.Controls.Add(this.DeviceLabel);
+            this.RightPanel.Controls.Add(this.VendorLabel);
+            this.RightPanel.Controls.Add(this.ModelLabel);
+            this.RightPanel.Controls.Add(this.PrintButton);
+            this.RightPanel.Location = new System.Drawing.Point(1003, 171);
+            this.RightPanel.Name = "RightPanel";
+            this.RightPanel.Size = new System.Drawing.Size(355, 416);
+            this.RightPanel.TabIndex = 14;
+            // 
+            // TypeLabel
+            // 
+            this.TypeLabel.Location = new System.Drawing.Point(3, 325);
+            this.TypeLabel.Name = "TypeLabel";
+            this.TypeLabel.Size = new System.Drawing.Size(349, 49);
+            this.TypeLabel.TabIndex = 5;
+            this.TypeLabel.Text = "Тип:";
+            this.TypeLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // DeviceLabel
             // 
@@ -198,28 +209,35 @@ namespace Sales
             // 
             this.TypeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TypeBox.FormattingEnabled = true;
-            this.TypeBox.Location = new System.Drawing.Point(112, 498);
+            this.TypeBox.Location = new System.Drawing.Point(44, 331);
             this.TypeBox.Name = "TypeBox";
             this.TypeBox.Size = new System.Drawing.Size(121, 23);
             this.TypeBox.TabIndex = 16;
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(143, 564);
+            this.SearchButton.Location = new System.Drawing.Point(75, 397);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(75, 23);
             this.SearchButton.TabIndex = 17;
             this.SearchButton.Text = "Найти";
             this.SearchButton.UseVisualStyleBackColor = true;
             // 
-            // TypeLabel
+            // LeftPanel
             // 
-            this.TypeLabel.Location = new System.Drawing.Point(3, 325);
-            this.TypeLabel.Name = "TypeLabel";
-            this.TypeLabel.Size = new System.Drawing.Size(349, 49);
-            this.TypeLabel.TabIndex = 5;
-            this.TypeLabel.Text = "Тип:";
-            this.TypeLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LeftPanel.Controls.Add(label3);
+            this.LeftPanel.Controls.Add(this.SearchButton);
+            this.LeftPanel.Controls.Add(label1);
+            this.LeftPanel.Controls.Add(this.TypeBox);
+            this.LeftPanel.Controls.Add(this.DeviceBox);
+            this.LeftPanel.Controls.Add(label4);
+            this.LeftPanel.Controls.Add(label2);
+            this.LeftPanel.Controls.Add(this.VendorBox);
+            this.LeftPanel.Controls.Add(this.ModelBox);
+            this.LeftPanel.Location = new System.Drawing.Point(132, 157);
+            this.LeftPanel.Name = "LeftPanel";
+            this.LeftPanel.Size = new System.Drawing.Size(200, 504);
+            this.LeftPanel.TabIndex = 18;
             // 
             // PrintForm
             // 
@@ -227,16 +245,8 @@ namespace Sales
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1370, 673);
-            this.Controls.Add(this.SearchButton);
-            this.Controls.Add(this.TypeBox);
-            this.Controls.Add(label4);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.ModelBox);
-            this.Controls.Add(label3);
-            this.Controls.Add(this.VendorBox);
-            this.Controls.Add(label2);
-            this.Controls.Add(this.DeviceBox);
-            this.Controls.Add(label1);
+            this.Controls.Add(this.LeftPanel);
+            this.Controls.Add(this.RightPanel);
             this.Controls.Add(this.PreviewBox);
             this.Controls.Add(this.Head);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -245,7 +255,8 @@ namespace Sales
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.PreviewBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PreviewErr)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.RightPanel.ResumeLayout(false);
+            this.LeftPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -259,12 +270,13 @@ namespace Sales
         private System.Windows.Forms.ComboBox ModelBox;
         private System.Windows.Forms.ComboBox VendorBox;
         private System.Windows.Forms.ComboBox DeviceBox;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel RightPanel;
         private System.Windows.Forms.Label DeviceLabel;
         private System.Windows.Forms.Label VendorLabel;
         private System.Windows.Forms.Label ModelLabel;
         private System.Windows.Forms.ComboBox TypeBox;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Label TypeLabel;
+        private System.Windows.Forms.Panel LeftPanel;
     }
 }

@@ -29,22 +29,21 @@ namespace Sales
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label1;
+            this.HistLabel = new System.Windows.Forms.Label();
             this.GoBackButton = new System.Windows.Forms.Button();
             this.AddUserButton = new System.Windows.Forms.Button();
             this.HistoryView = new System.Windows.Forms.ListBox();
             this.AddProductButton = new System.Windows.Forms.Button();
-            label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // HistLabel
             // 
-            label1.Location = new System.Drawing.Point(583, 382);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(251, 21);
-            label1.TabIndex = 3;
-            label1.Text = "История операций";
-            label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.HistLabel.Location = new System.Drawing.Point(583, 382);
+            this.HistLabel.Name = "HistLabel";
+            this.HistLabel.Size = new System.Drawing.Size(251, 21);
+            this.HistLabel.TabIndex = 3;
+            this.HistLabel.Text = "История операций";
+            this.HistLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // GoBackButton
             // 
@@ -92,7 +91,7 @@ namespace Sales
             this.ClientSize = new System.Drawing.Size(800, 635);
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.HistoryView);
-            this.Controls.Add(label1);
+            this.Controls.Add(this.HistLabel);
             this.Controls.Add(this.AddUserButton);
             this.Controls.Add(this.GoBackButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -107,7 +106,7 @@ namespace Sales
 
         private System.Windows.Forms.Button GoBackButton;
         private System.Windows.Forms.Button AddUserButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label HistLabel;
         private System.Windows.Forms.ListBox HistoryView;
         private System.Windows.Forms.Button AddProductButton;
     }

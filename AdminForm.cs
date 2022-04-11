@@ -15,7 +15,9 @@ namespace Sales
         public AdminForm()
         {
             InitializeComponent();
-            this.ScaleToResolution();
+            this.CenterControl(HistLabel, new Point(0, Screen.GetWorkingArea(this).Height / 2 - HistoryView.Height - 10));
+            this.CenterControl(AddUserButton, new Point(-Screen.GetWorkingArea(this).Width/2 + 100, -200));
+            this.CenterControl(AddProductButton, new Point(-Screen.GetWorkingArea(this).Width / 2 + 100,-100));
             HistoryView.DataSource = History._data.Select(x => x.ToString()).ToList();
             GoBackButton.Click += GoBack;
             AddUserButton.Click += (o, e) => new AddUserDialog().ShowDialog();

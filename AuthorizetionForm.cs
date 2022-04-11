@@ -17,7 +17,8 @@ namespace Sales
         public AuthorizationForm()
         {
             InitializeComponent();
-            this.ScaleToResolution();
+            this.CenterControl(FormPanel, Point.Empty);
+            this.CenterControl(QuitButton, new Point(0, 100));
             AuthButton.Click += Authorize;
             QuitButton.Click += (o, e) => this.Close(); 
         }

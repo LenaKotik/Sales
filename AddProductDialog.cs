@@ -47,6 +47,7 @@ namespace Sales
             #endregion
             SubmitB.Click += Submit;
             LoadB.Click += (o,e) => ProductOFD.ShowDialog();
+            CancelB.Click += (o, e) => this.Close();
             ProductOFD.FileOk += LoadImage;
         }
 
