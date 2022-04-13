@@ -4,6 +4,6 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)magick.net-q8-anycpu\11.0.0\build\netstandard20\Magick.NET-Q8-AnyCPU.targets" Condition="Exists('$(NuGetPackageRoot)magick.net-q8-anycpu\11.0.0\build\netstandard20\Magick.NET-Q8-AnyCPU.targets')" />
+    <Import Project="$(NuGetPackageRoot)magick.net-q8-anycpu\11.1.0\build\netstandard20\Magick.NET-Q8-AnyCPU.targets" Condition="Exists('$(NuGetPackageRoot)magick.net-q8-anycpu\11.1.0\build\netstandard20\Magick.NET-Q8-AnyCPU.targets')" />
   </ImportGroup>
 </Project>

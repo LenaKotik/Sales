@@ -48,7 +48,11 @@
           "dependencies": {
             "Magick.NET-Q8-AnyCPU": {
               "target": "Package",
-              "version": "[11.0.0, )"
+              "version": "[11.1.0, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.28, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
