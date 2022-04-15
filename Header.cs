@@ -37,6 +37,7 @@ namespace Sales
         public Header()
         {
             InitializeComponent();
+            RelocateControls();
             BackDrawPanel.Paint += DrawBackArrow;
             BackDrawPanel.MouseEnter += Hover;
             BackDrawPanel.MouseLeave += Hovernt;
@@ -50,6 +51,12 @@ namespace Sales
             Size = new Size(1400, 112);
             ButtonsPanel.Visible = false;
             DropdownOpen = false;
+        }
+        private void RelocateControls()
+        {
+            Rectangle p = Screen.GetWorkingArea(this);
+            BP.Location = new Point(p.X + p.Width - BP.Width, BP.Top);
+            UP.Location = new Point(p.X + p.Width - UP.Width, UP.Top);
         }
         private void GoBack(object sender, EventArgs e)
         {

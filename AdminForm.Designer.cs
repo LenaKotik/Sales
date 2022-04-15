@@ -38,28 +38,31 @@ namespace Sales
             // 
             // HistLabel
             // 
-            this.HistLabel.Location = new System.Drawing.Point(583, 382);
+            this.HistLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.HistLabel.Location = new System.Drawing.Point(583, 371);
             this.HistLabel.Name = "HistLabel";
-            this.HistLabel.Size = new System.Drawing.Size(251, 21);
+            this.HistLabel.Size = new System.Drawing.Size(251, 32);
             this.HistLabel.TabIndex = 3;
             this.HistLabel.Text = "История операций";
             this.HistLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // GoBackButton
             // 
-            this.GoBackButton.Location = new System.Drawing.Point(13, 13);
+            this.GoBackButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GoBackButton.Location = new System.Drawing.Point(13, 14);
             this.GoBackButton.Name = "GoBackButton";
-            this.GoBackButton.Size = new System.Drawing.Size(75, 23);
+            this.GoBackButton.Size = new System.Drawing.Size(86, 33);
             this.GoBackButton.TabIndex = 0;
             this.GoBackButton.Text = "Назад";
             this.GoBackButton.UseVisualStyleBackColor = true;
             // 
             // AddUserButton
             // 
+            this.AddUserButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddUserButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AddUserButton.Location = new System.Drawing.Point(22, 119);
+            this.AddUserButton.Location = new System.Drawing.Point(22, 117);
             this.AddUserButton.Name = "AddUserButton";
-            this.AddUserButton.Size = new System.Drawing.Size(165, 35);
+            this.AddUserButton.Size = new System.Drawing.Size(229, 41);
             this.AddUserButton.TabIndex = 1;
             this.AddUserButton.Text = "Добавить пользователя";
             this.AddUserButton.UseVisualStyleBackColor = true;
@@ -67,20 +70,22 @@ namespace Sales
             // HistoryView
             // 
             this.HistoryView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.HistoryView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.HistoryView.FormattingEnabled = true;
-            this.HistoryView.ItemHeight = 15;
-            this.HistoryView.Location = new System.Drawing.Point(0, 406);
+            this.HistoryView.ItemHeight = 21;
+            this.HistoryView.Location = new System.Drawing.Point(0, 421);
             this.HistoryView.Name = "HistoryView";
-            this.HistoryView.Size = new System.Drawing.Size(800, 229);
+            this.HistoryView.Size = new System.Drawing.Size(800, 214);
             this.HistoryView.TabIndex = 4;
             // 
             // AddProductButton
             // 
+            this.AddProductButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddProductButton.Location = new System.Drawing.Point(22, 237);
             this.AddProductButton.Name = "AddProductButton";
-            this.AddProductButton.Size = new System.Drawing.Size(165, 35);
+            this.AddProductButton.Size = new System.Drawing.Size(229, 38);
             this.AddProductButton.TabIndex = 5;
-            this.AddProductButton.Text = "Добавить изображение";
+            this.AddProductButton.Text = "Добавить модель";
             this.AddProductButton.UseVisualStyleBackColor = true;
             // 
             // AdminForm

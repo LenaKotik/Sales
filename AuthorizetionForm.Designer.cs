@@ -59,7 +59,7 @@ namespace Sales
             this.FormPanel.Controls.Add(this.passwordBox);
             this.FormPanel.Location = new System.Drawing.Point(573, 206);
             this.FormPanel.Name = "FormPanel";
-            this.FormPanel.Size = new System.Drawing.Size(200, 100);
+            this.FormPanel.Size = new System.Drawing.Size(280, 135);
             this.FormPanel.TabIndex = 5;
             // 
             // codeBox
@@ -67,17 +67,19 @@ namespace Sales
             this.codeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.codeBox.Location = new System.Drawing.Point(46, 32);
+            this.codeBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.codeBox.Location = new System.Drawing.Point(39, 51);
             this.codeBox.Name = "codeBox";
             this.codeBox.PlaceholderText = "Код продавца";
-            this.codeBox.Size = new System.Drawing.Size(100, 23);
+            this.codeBox.Size = new System.Drawing.Size(203, 32);
             this.codeBox.TabIndex = 3;
             // 
             // AuthButton
             // 
-            this.AuthButton.Location = new System.Drawing.Point(56, 61);
+            this.AuthButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AuthButton.Location = new System.Drawing.Point(94, 89);
             this.AuthButton.Name = "AuthButton";
-            this.AuthButton.Size = new System.Drawing.Size(80, 23);
+            this.AuthButton.Size = new System.Drawing.Size(93, 32);
             this.AuthButton.TabIndex = 4;
             this.AuthButton.Text = "Войти";
             this.AuthButton.UseVisualStyleBackColor = true;
@@ -87,19 +89,21 @@ namespace Sales
             this.passwordBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.passwordBox.Location = new System.Drawing.Point(46, 3);
+            this.passwordBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.passwordBox.Location = new System.Drawing.Point(39, 13);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
             this.passwordBox.PlaceholderText = "Пароль";
-            this.passwordBox.Size = new System.Drawing.Size(100, 23);
+            this.passwordBox.Size = new System.Drawing.Size(203, 32);
             this.passwordBox.TabIndex = 2;
             // 
             // QuitButton
             // 
             this.QuitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.QuitButton.Location = new System.Drawing.Point(634, 393);
+            this.QuitButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QuitButton.Location = new System.Drawing.Point(663, 370);
             this.QuitButton.Name = "QuitButton";
-            this.QuitButton.Size = new System.Drawing.Size(75, 23);
+            this.QuitButton.Size = new System.Drawing.Size(99, 45);
             this.QuitButton.TabIndex = 6;
             this.QuitButton.Text = "Выйти";
             this.QuitButton.UseVisualStyleBackColor = false;

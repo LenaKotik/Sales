@@ -88,10 +88,11 @@ namespace Sales
                 return;
             }
             PrintDocument pd = new PrintDocument();
-            pd.PrinterSettings.Duplex = Duplex.Simplex;
             pd.PrintPage += (object sender, PrintPageEventArgs e) 
                 => e.Graphics?.DrawImage(image, 0, 0);
-            pd.Print();
+            PrintDialog.Document = pd;
+            if (PrintDialog.ShowDialog() == DialogResult.OK)
+                pd.Print();
             History.Add(prod_cache);
         }
 #nullable restore

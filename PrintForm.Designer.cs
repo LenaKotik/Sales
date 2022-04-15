@@ -49,6 +49,7 @@ namespace Sales
             this.TypeBox = new System.Windows.Forms.ComboBox();
             this.SearchButton = new System.Windows.Forms.Button();
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.PrintDialog = new System.Windows.Forms.PrintDialog();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -61,36 +62,40 @@ namespace Sales
             // 
             // label3
             // 
-            label3.Location = new System.Drawing.Point(44, 210);
+            label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label3.Location = new System.Drawing.Point(44, 248);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(121, 23);
+            label3.Size = new System.Drawing.Size(214, 23);
             label3.TabIndex = 11;
             label3.Text = "Модель устройства";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
-            label2.Location = new System.Drawing.Point(44, 107);
+            label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label2.Location = new System.Drawing.Point(44, 125);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(121, 23);
+            label2.Size = new System.Drawing.Size(214, 23);
             label2.TabIndex = 9;
             label2.Text = "Производитель";
             label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
+            label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label1.Location = new System.Drawing.Point(44, 4);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(121, 23);
+            label1.Size = new System.Drawing.Size(214, 23);
             label1.TabIndex = 7;
             label1.Text = "Тип устройства";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
-            label4.Location = new System.Drawing.Point(44, 305);
+            label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label4.Location = new System.Drawing.Point(44, 361);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(121, 23);
+            label4.Size = new System.Drawing.Size(214, 23);
             label4.TabIndex = 15;
             label4.Text = "Тип";
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,9 +113,11 @@ namespace Sales
             // 
             // PrintButton
             // 
-            this.PrintButton.Location = new System.Drawing.Point(0, 377);
+            this.PrintButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PrintButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PrintButton.Location = new System.Drawing.Point(0, 470);
             this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(355, 39);
+            this.PrintButton.Size = new System.Drawing.Size(355, 46);
             this.PrintButton.TabIndex = 1;
             this.PrintButton.Text = "Печать";
             this.PrintButton.UseVisualStyleBackColor = true;
@@ -121,7 +128,7 @@ namespace Sales
             this.PreviewBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PreviewBox.Location = new System.Drawing.Point(449, 171);
             this.PreviewBox.Name = "PreviewBox";
-            this.PreviewBox.Size = new System.Drawing.Size(400, 600);
+            this.PreviewBox.Size = new System.Drawing.Size(516, 600);
             this.PreviewBox.TabIndex = 2;
             this.PreviewBox.TabStop = false;
             // 
@@ -132,28 +139,31 @@ namespace Sales
             // ModelBox
             // 
             this.ModelBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ModelBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ModelBox.FormattingEnabled = true;
-            this.ModelBox.Location = new System.Drawing.Point(44, 236);
+            this.ModelBox.Location = new System.Drawing.Point(44, 274);
             this.ModelBox.Name = "ModelBox";
-            this.ModelBox.Size = new System.Drawing.Size(121, 23);
+            this.ModelBox.Size = new System.Drawing.Size(214, 33);
             this.ModelBox.TabIndex = 12;
             // 
             // VendorBox
             // 
             this.VendorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.VendorBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.VendorBox.FormattingEnabled = true;
-            this.VendorBox.Location = new System.Drawing.Point(44, 133);
+            this.VendorBox.Location = new System.Drawing.Point(44, 151);
             this.VendorBox.Name = "VendorBox";
-            this.VendorBox.Size = new System.Drawing.Size(121, 23);
+            this.VendorBox.Size = new System.Drawing.Size(214, 33);
             this.VendorBox.TabIndex = 10;
             // 
             // DeviceBox
             // 
             this.DeviceBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DeviceBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DeviceBox.FormattingEnabled = true;
             this.DeviceBox.Location = new System.Drawing.Point(44, 30);
             this.DeviceBox.Name = "DeviceBox";
-            this.DeviceBox.Size = new System.Drawing.Size(121, 23);
+            this.DeviceBox.Size = new System.Drawing.Size(214, 33);
             this.DeviceBox.TabIndex = 8;
             // 
             // RightPanel
@@ -164,14 +174,16 @@ namespace Sales
             this.RightPanel.Controls.Add(this.VendorLabel);
             this.RightPanel.Controls.Add(this.ModelLabel);
             this.RightPanel.Controls.Add(this.PrintButton);
-            this.RightPanel.Location = new System.Drawing.Point(1003, 171);
+            this.RightPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RightPanel.Location = new System.Drawing.Point(1003, 145);
             this.RightPanel.Name = "RightPanel";
-            this.RightPanel.Size = new System.Drawing.Size(355, 416);
+            this.RightPanel.Size = new System.Drawing.Size(355, 516);
             this.RightPanel.TabIndex = 14;
             // 
             // TypeLabel
             // 
-            this.TypeLabel.Location = new System.Drawing.Point(3, 325);
+            this.TypeLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TypeLabel.Location = new System.Drawing.Point(3, 363);
             this.TypeLabel.Name = "TypeLabel";
             this.TypeLabel.Size = new System.Drawing.Size(349, 49);
             this.TypeLabel.TabIndex = 5;
@@ -180,7 +192,8 @@ namespace Sales
             // 
             // DeviceLabel
             // 
-            this.DeviceLabel.Location = new System.Drawing.Point(3, 29);
+            this.DeviceLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeviceLabel.Location = new System.Drawing.Point(6, 11);
             this.DeviceLabel.Name = "DeviceLabel";
             this.DeviceLabel.Size = new System.Drawing.Size(349, 49);
             this.DeviceLabel.TabIndex = 4;
@@ -189,7 +202,8 @@ namespace Sales
             // 
             // VendorLabel
             // 
-            this.VendorLabel.Location = new System.Drawing.Point(0, 129);
+            this.VendorLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.VendorLabel.Location = new System.Drawing.Point(3, 149);
             this.VendorLabel.Name = "VendorLabel";
             this.VendorLabel.Size = new System.Drawing.Size(349, 49);
             this.VendorLabel.TabIndex = 3;
@@ -198,7 +212,8 @@ namespace Sales
             // 
             // ModelLabel
             // 
-            this.ModelLabel.Location = new System.Drawing.Point(0, 235);
+            this.ModelLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ModelLabel.Location = new System.Drawing.Point(0, 251);
             this.ModelLabel.Name = "ModelLabel";
             this.ModelLabel.Size = new System.Drawing.Size(349, 49);
             this.ModelLabel.TabIndex = 2;
@@ -208,17 +223,19 @@ namespace Sales
             // TypeBox
             // 
             this.TypeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TypeBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TypeBox.FormattingEnabled = true;
-            this.TypeBox.Location = new System.Drawing.Point(44, 331);
+            this.TypeBox.Location = new System.Drawing.Point(44, 387);
             this.TypeBox.Name = "TypeBox";
-            this.TypeBox.Size = new System.Drawing.Size(121, 23);
+            this.TypeBox.Size = new System.Drawing.Size(214, 33);
             this.TypeBox.TabIndex = 16;
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(75, 397);
+            this.SearchButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SearchButton.Location = new System.Drawing.Point(71, 543);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchButton.Size = new System.Drawing.Size(159, 46);
             this.SearchButton.TabIndex = 17;
             this.SearchButton.Text = "Найти";
             this.SearchButton.UseVisualStyleBackColor = true;
@@ -234,10 +251,15 @@ namespace Sales
             this.LeftPanel.Controls.Add(label2);
             this.LeftPanel.Controls.Add(this.VendorBox);
             this.LeftPanel.Controls.Add(this.ModelBox);
-            this.LeftPanel.Location = new System.Drawing.Point(132, 157);
+            this.LeftPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LeftPanel.Location = new System.Drawing.Point(145, 72);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(200, 504);
+            this.LeftPanel.Size = new System.Drawing.Size(298, 605);
             this.LeftPanel.TabIndex = 18;
+            // 
+            // PrintDialog
+            // 
+            this.PrintDialog.UseEXDialog = true;
             // 
             // PrintForm
             // 
@@ -278,5 +300,6 @@ namespace Sales
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Label TypeLabel;
         private System.Windows.Forms.Panel LeftPanel;
+        private System.Windows.Forms.PrintDialog PrintDialog;
     }
 }

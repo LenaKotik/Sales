@@ -198,7 +198,7 @@ namespace Sales
             this.SubmitB.Name = "SubmitB";
             this.SubmitB.Size = new System.Drawing.Size(75, 23);
             this.SubmitB.TabIndex = 16;
-            this.SubmitB.Text = "Отправить";
+            this.SubmitB.Text = "Добавить";
             this.SubmitB.UseVisualStyleBackColor = true;
             // 
             // AddProductDialog

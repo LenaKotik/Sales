@@ -29,19 +29,19 @@ namespace Sales
             return new List<string>();
         }
         public static List<string> GetDeviceData() 
-            => GetDirectories(@"D:\ProjectRoot\CSharpProj\Sales\Models\");
+            => GetDirectories("Models\\");
         public static List<string> GetVendorData(string device)
-            => GetDirectories(@"D:\ProjectRoot\CSharpProj\Sales\Models\" + device + '\\');
+            => GetDirectories("Models\\" + device + '\\');
         public static List<string> GetModelData(string device, string vendor)
-            => GetDirectories(@"D:\ProjectRoot\CSharpProj\Sales\Models\" + device + '\\' + vendor + '\\');
+            => GetDirectories("Models\\" + device + '\\' + vendor + '\\');
         public static List<string> GetTypeData(string device, string vendor, string model)
-            => Directory.Exists(@"D:\ProjectRoot\CSharpProj\Sales\Models\" + device + '\\' + vendor + '\\' + model)? Directory.GetFiles(@"D:\ProjectRoot\CSharpProj\Sales\Models\" + device + '\\' + vendor + '\\' + model, "*.eps").Select(x => Path.GetFileNameWithoutExtension(x)).ToList() : new List<string>();
+            => Directory.Exists("Models\\" + device + '\\' + vendor + '\\' + model)? Directory.GetFiles("Models\\" + device + '\\' + vendor + '\\' + model, "*.eps").Select(x => Path.GetFileNameWithoutExtension(x)).ToList() : new List<string>();
 
         /// <returns>null if such product does not exist, otherwise - the existing product</returns>
         public static Product? SearchProduct(string Device, string Vendor, string Model, string Type)
-            => new Product(Device, Vendor, Model, Type, @"D:\ProjectRoot\CSharpProj\Sales\Models\"+Device+'\\'+Vendor+'\\'+Model+'\\'+Type + ".eps");
+            => new Product(Device, Vendor, Model, Type, "Models\\"+Device+'\\'+Vendor+'\\'+Model+'\\'+Type + ".eps");
 #endregion
-#region database stuff
+    #region database stuff
         public static void AddUser(User u)
         {
 #if USE_MYSQL
