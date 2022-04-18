@@ -30,8 +30,8 @@ namespace Sales
             this.CenterControl(LeftPanel, new Point(-sideOffset, topOffset));
             this.CenterControl(RightPanel, new Point(sideOffset, topOffset));
             Head.User = Program.user;
+            this.GotFocus += (e, o) => DeviceBox.DataSource = DataProvider.GetDeviceData();
             PrintButton.Click += Print;
-            DeviceBox.DataSource = DataProvider.GetDeviceData();
             DeviceBox.SelectedValueChanged += (o, e) => VendorBox.DataSource = DataProvider.GetVendorData(DeviceBox.SelectedValue?.ToString()??"");
             VendorBox.SelectedValueChanged += (o, e) => ModelBox.DataSource = DataProvider.GetModelData(DeviceBox.SelectedValue?.ToString()??"", VendorBox.SelectedValue?.ToString()??"");
             ModelBox.SelectedValueChanged += (o, e) => TypeBox.DataSource = DataProvider.GetTypeData(DeviceBox.SelectedValue?.ToString()??"", VendorBox.SelectedValue?.ToString()??"", ModelBox.SelectedValue?.ToString()??"");

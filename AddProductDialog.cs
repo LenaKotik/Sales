@@ -90,11 +90,13 @@ namespace Sales
                 SubmitEP.SetError(LoadB, "Картинка не загружена");
                 return;
             }
-            string path = $@"D:\ProjectRoot\CSharpProj\Sales\Models\{Device}\{Vendor}\{Model}\";
+            string path = $@"Models\{Device}\{Vendor}\{Model}\";
             Directory.CreateDirectory(path);
-            FileStream fOut = File.Create(path + Type + ".eps");
-            fOut.Write(image, 0, image.Length);
-
+            using (FileStream fOut = File.Create(path + Type + ".eps"))
+            {
+                fOut.Write(image, 0, image.Length);
+                fOut.Flush();
+            }
             this.Close();
         }
 
