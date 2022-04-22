@@ -5,16 +5,8 @@ D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\Sales.runtimeconfig.d
 D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\Sales.dll
 D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\ref\Sales.dll
 D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\Sales.pdb
-D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\BouncyCastle.Crypto.dll
-D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\Google.Protobuf.dll
-D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\K4os.Compression.LZ4.dll
-D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\K4os.Compression.LZ4.Streams.dll
-D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\K4os.Hash.xxHash.dll
 D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\Magick.NET-Q8-AnyCPU.dll
 D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\Magick.NET.Core.dll
-D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\MySql.Data.dll
-D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\Ubiety.Dns.Core.dll
-D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\ZstdNet.dll
 D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\System.Data.SqlClient.dll
 D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\runtimes\linux-arm64\native\Magick.Native-Q8-arm64.dll.so
 D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\runtimes\linux-musl-x64\native\Magick.Native-Q8-x64.dll.so

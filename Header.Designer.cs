@@ -34,13 +34,12 @@ namespace Sales
             this.Username = new System.Windows.Forms.Label();
             this.ButtonsPanel = new System.Windows.Forms.Panel();
             this.AdminButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.LogOutButton = new System.Windows.Forms.Button();
             this.BackDrawPanel = new System.Windows.Forms.Panel();
             this.BP = new System.Windows.Forms.Panel();
             this.UP = new System.Windows.Forms.Panel();
             label1 = new System.Windows.Forms.Label();
+            this.ButtonsPanel.SuspendLayout();
             this.BP.SuspendLayout();
             this.UP.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +75,7 @@ namespace Sales
             // ButtonsPanel
             // 
             this.ButtonsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.ButtonsPanel.Controls.Add(this.BP);
             this.ButtonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ButtonsPanel.Location = new System.Drawing.Point(0, 122);
             this.ButtonsPanel.Name = "ButtonsPanel";
@@ -93,31 +93,11 @@ namespace Sales
             this.AdminButton.Text = "Админ";
             this.AdminButton.UseVisualStyleBackColor = false;
             // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(119, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 34);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "OtherButton";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(235, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 34);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "SomeButton";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // LogOutButton
             // 
             this.LogOutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.LogOutButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LogOutButton.Location = new System.Drawing.Point(351, 3);
+            this.LogOutButton.Location = new System.Drawing.Point(119, 3);
             this.LogOutButton.Name = "LogOutButton";
             this.LogOutButton.Size = new System.Drawing.Size(110, 34);
             this.LogOutButton.TabIndex = 0;
@@ -137,11 +117,9 @@ namespace Sales
             this.BP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.BP.Controls.Add(this.AdminButton);
             this.BP.Controls.Add(this.LogOutButton);
-            this.BP.Controls.Add(this.button2);
-            this.BP.Controls.Add(this.button3);
-            this.BP.Location = new System.Drawing.Point(939, 122);
+            this.BP.Location = new System.Drawing.Point(1163, 0);
             this.BP.Name = "BP";
-            this.BP.Size = new System.Drawing.Size(464, 40);
+            this.BP.Size = new System.Drawing.Size(232, 40);
             this.BP.TabIndex = 4;
             // 
             // UP
@@ -160,12 +138,12 @@ namespace Sales
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.UP);
-            this.Controls.Add(this.BP);
             this.Controls.Add(label1);
             this.Controls.Add(this.BackDrawPanel);
             this.Controls.Add(this.ButtonsPanel);
             this.Name = "Header";
             this.Size = new System.Drawing.Size(1406, 162);
+            this.ButtonsPanel.ResumeLayout(false);
             this.BP.ResumeLayout(false);
             this.UP.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -179,8 +157,6 @@ namespace Sales
         private System.Windows.Forms.Label Username;
         private System.Windows.Forms.Panel ButtonsPanel;
         private System.Windows.Forms.Button LogOutButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button AdminButton;
         private System.Windows.Forms.Panel BackDrawPanel;
         private System.Windows.Forms.Panel BP;

@@ -42,6 +42,7 @@ namespace Sales
             this.VendorBox = new System.Windows.Forms.ComboBox();
             this.DeviceBox = new System.Windows.Forms.ComboBox();
             this.RightPanel = new System.Windows.Forms.Panel();
+            this.MaterialLabel = new System.Windows.Forms.Label();
             this.TypeLabel = new System.Windows.Forms.Label();
             this.DeviceLabel = new System.Windows.Forms.Label();
             this.VendorLabel = new System.Windows.Forms.Label();
@@ -50,6 +51,8 @@ namespace Sales
             this.SearchButton = new System.Windows.Forms.Button();
             this.LeftPanel = new System.Windows.Forms.Panel();
             this.PrintDialog = new System.Windows.Forms.PrintDialog();
+            this.ClientPhoneBox = new System.Windows.Forms.TextBox();
+            this.ClientNameBox = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -115,7 +118,7 @@ namespace Sales
             // 
             this.PrintButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PrintButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PrintButton.Location = new System.Drawing.Point(0, 470);
+            this.PrintButton.Location = new System.Drawing.Point(0, 499);
             this.PrintButton.Name = "PrintButton";
             this.PrintButton.Size = new System.Drawing.Size(355, 46);
             this.PrintButton.TabIndex = 1;
@@ -169,6 +172,7 @@ namespace Sales
             // RightPanel
             // 
             this.RightPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.RightPanel.Controls.Add(this.MaterialLabel);
             this.RightPanel.Controls.Add(this.TypeLabel);
             this.RightPanel.Controls.Add(this.DeviceLabel);
             this.RightPanel.Controls.Add(this.VendorLabel);
@@ -177,8 +181,18 @@ namespace Sales
             this.RightPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RightPanel.Location = new System.Drawing.Point(1003, 145);
             this.RightPanel.Name = "RightPanel";
-            this.RightPanel.Size = new System.Drawing.Size(355, 516);
+            this.RightPanel.Size = new System.Drawing.Size(355, 545);
             this.RightPanel.TabIndex = 14;
+            // 
+            // MaterialLabel
+            // 
+            this.MaterialLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MaterialLabel.Location = new System.Drawing.Point(3, 447);
+            this.MaterialLabel.Name = "MaterialLabel";
+            this.MaterialLabel.Size = new System.Drawing.Size(349, 49);
+            this.MaterialLabel.TabIndex = 6;
+            this.MaterialLabel.Text = "Плёнка:";
+            this.MaterialLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // TypeLabel
             // 
@@ -233,7 +247,7 @@ namespace Sales
             // SearchButton
             // 
             this.SearchButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SearchButton.Location = new System.Drawing.Point(71, 543);
+            this.SearchButton.Location = new System.Drawing.Point(74, 458);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(159, 46);
             this.SearchButton.TabIndex = 17;
@@ -242,6 +256,8 @@ namespace Sales
             // 
             // LeftPanel
             // 
+            this.LeftPanel.Controls.Add(this.ClientNameBox);
+            this.LeftPanel.Controls.Add(this.ClientPhoneBox);
             this.LeftPanel.Controls.Add(label3);
             this.LeftPanel.Controls.Add(this.SearchButton);
             this.LeftPanel.Controls.Add(label1);
@@ -254,12 +270,30 @@ namespace Sales
             this.LeftPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LeftPanel.Location = new System.Drawing.Point(145, 72);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(298, 605);
+            this.LeftPanel.Size = new System.Drawing.Size(298, 618);
             this.LeftPanel.TabIndex = 18;
             // 
             // PrintDialog
             // 
             this.PrintDialog.UseEXDialog = true;
+            // 
+            // ClientPhoneBox
+            // 
+            this.ClientPhoneBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ClientPhoneBox.Location = new System.Drawing.Point(74, 520);
+            this.ClientPhoneBox.Name = "ClientPhoneBox";
+            this.ClientPhoneBox.PlaceholderText = "Телефон клиента";
+            this.ClientPhoneBox.Size = new System.Drawing.Size(159, 32);
+            this.ClientPhoneBox.TabIndex = 18;
+            // 
+            // ClientNameBox
+            // 
+            this.ClientNameBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ClientNameBox.Location = new System.Drawing.Point(74, 572);
+            this.ClientNameBox.Name = "ClientNameBox";
+            this.ClientNameBox.PlaceholderText = "Имя клиента";
+            this.ClientNameBox.Size = new System.Drawing.Size(159, 32);
+            this.ClientNameBox.TabIndex = 19;
             // 
             // PrintForm
             // 
@@ -279,6 +313,7 @@ namespace Sales
             ((System.ComponentModel.ISupportInitialize)(this.PreviewErr)).EndInit();
             this.RightPanel.ResumeLayout(false);
             this.LeftPanel.ResumeLayout(false);
+            this.LeftPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -301,5 +336,8 @@ namespace Sales
         private System.Windows.Forms.Label TypeLabel;
         private System.Windows.Forms.Panel LeftPanel;
         private System.Windows.Forms.PrintDialog PrintDialog;
+        private System.Windows.Forms.Label MaterialLabel;
+        private System.Windows.Forms.TextBox ClientNameBox;
+        private System.Windows.Forms.TextBox ClientPhoneBox;
     }
 }

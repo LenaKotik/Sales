@@ -34,6 +34,10 @@ namespace Sales
             this.AddUserButton = new System.Windows.Forms.Button();
             this.HistoryView = new System.Windows.Forms.ListBox();
             this.AddProductButton = new System.Windows.Forms.Button();
+            this.StatisticsView = new System.Windows.Forms.DataGridView();
+            this.DeleteHistoryButton = new System.Windows.Forms.Button();
+            this.DeleteUserButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.StatisticsView)).BeginInit();
             this.SuspendLayout();
             // 
             // HistLabel
@@ -88,12 +92,47 @@ namespace Sales
             this.AddProductButton.Text = "Добавить модель";
             this.AddProductButton.UseVisualStyleBackColor = true;
             // 
+            // StatisticsView
+            // 
+            this.StatisticsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StatisticsView.Location = new System.Drawing.Point(302, 41);
+            this.StatisticsView.Name = "StatisticsView";
+            this.StatisticsView.RowTemplate.Height = 25;
+            this.StatisticsView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.StatisticsView.Size = new System.Drawing.Size(452, 226);
+            this.StatisticsView.TabIndex = 6;
+            // 
+            // DeleteHistoryButton
+            // 
+            this.DeleteHistoryButton.BackColor = System.Drawing.Color.Red;
+            this.DeleteHistoryButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteHistoryButton.Location = new System.Drawing.Point(22, 371);
+            this.DeleteHistoryButton.Name = "DeleteHistoryButton";
+            this.DeleteHistoryButton.Size = new System.Drawing.Size(229, 38);
+            this.DeleteHistoryButton.TabIndex = 7;
+            this.DeleteHistoryButton.Text = "Очистить историю";
+            this.DeleteHistoryButton.UseVisualStyleBackColor = false;
+            // 
+            // DeleteUserButton
+            // 
+            this.DeleteUserButton.BackColor = System.Drawing.Color.Red;
+            this.DeleteUserButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteUserButton.Location = new System.Drawing.Point(22, 322);
+            this.DeleteUserButton.Name = "DeleteUserButton";
+            this.DeleteUserButton.Size = new System.Drawing.Size(229, 38);
+            this.DeleteUserButton.TabIndex = 8;
+            this.DeleteUserButton.Text = "Удалить пользователя";
+            this.DeleteUserButton.UseVisualStyleBackColor = false;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(800, 635);
+            this.Controls.Add(this.DeleteUserButton);
+            this.Controls.Add(this.DeleteHistoryButton);
+            this.Controls.Add(this.StatisticsView);
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.HistoryView);
             this.Controls.Add(this.HistLabel);
@@ -103,6 +142,7 @@ namespace Sales
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.StatisticsView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -114,5 +154,8 @@ namespace Sales
         private System.Windows.Forms.Label HistLabel;
         private System.Windows.Forms.ListBox HistoryView;
         private System.Windows.Forms.Button AddProductButton;
+        private System.Windows.Forms.DataGridView StatisticsView;
+        private System.Windows.Forms.Button DeleteHistoryButton;
+        private System.Windows.Forms.Button DeleteUserButton;
     }
 }

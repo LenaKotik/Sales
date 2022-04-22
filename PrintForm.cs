@@ -49,10 +49,17 @@ namespace Sales
             FileStream fileStr = File.OpenRead(_pr.Filepath);
             MagickReadSettings settings = new MagickReadSettings()
             { ColorType = ColorType.Grayscale, ColorSpace = ColorSpace.sRGB, Format = MagickFormat.Eps };
-            MagickImage img = new MagickImage(fileStr, settings);
             MemoryStream imgMem = new MemoryStream();
-            img.Write(imgMem, MagickFormat.Png);
-            
+            try
+            {
+                MagickImage img = new MagickImage(fileStr, settings);
+                img.Write(imgMem, MagickFormat.Png);
+            }
+            catch (MagickException e)
+            {
+                MessageBox.Show(e.Message, "Ошибка при чтении файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             image = Image.FromStream(imgMem);
             PreviewBox.Image = image;
             PreviewErr.SetError(PreviewBox, "");
@@ -76,9 +83,10 @@ namespace Sales
                 VendorLabel.Text = "Производитель:\n" + Vendor;
                 ModelLabel.Text = "Модель:\n" + Model;
                 TypeLabel.Text = "Тип:\n" + Type;
+                MaterialLabel.Text = "Плёнка:\n" + (DataProvider.GetMaterial(pr.Value) ?? "[Нет данных]");
             }
             else
-                PreviewErr.SetError(PreviewBox, "Продукт по указанным данным не найден");
+                PreviewErr.SetError(LeftPanel, "Продукт по указанным данным не найден");
         }
         private void Print(object sender, EventArgs e)
         {
@@ -92,8 +100,10 @@ namespace Sales
                 => e.Graphics?.DrawImage(image, 0, 0);
             PrintDialog.Document = pd;
             if (PrintDialog.ShowDialog() == DialogResult.OK)
+            {
                 pd.Print();
-            History.Add(prod_cache);
+                DataProvider.PushEntry(prod_cache);
+            }
         }
 #nullable restore
     }

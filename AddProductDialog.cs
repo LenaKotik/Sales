@@ -58,11 +58,12 @@ namespace Sales
 
         private void Submit(object sender, EventArgs e)
         {
-            string 
+            string
                 Device = GetVal(DeviceBox, DeviceNVBox),
                 Vendor = GetVal(VendorBox, VendorNVBox),
                 Model = GetVal(ModelBox, ModelNVBox),
-                Type = GetVal(TypeBox, TypeNVBox);
+                Type = GetVal(TypeBox, TypeNVBox),
+                Material = MaterialBox.Text;
             #region empty_checks
             if (Vendor == "")
             {
@@ -84,6 +85,11 @@ namespace Sales
                 SubmitEP.SetError(TypeNVBox, "Введите значение");
                 return;
             }
+            if (Material == "")
+            {
+                SubmitEP.SetError(MaterialBox, "Введите значение");
+                return;
+            }
             #endregion
             if (image == null)
             {
@@ -97,6 +103,7 @@ namespace Sales
                 fOut.Write(image, 0, image.Length);
                 fOut.Flush();
             }
+            DataProvider.SetMaterial(new Product(Device, Vendor, Model, Type, ""), Material, TypeBox.SelectedValue?.ToString() != "Добавить...");
             this.Close();
         }
 

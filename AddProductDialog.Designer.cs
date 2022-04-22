@@ -47,6 +47,7 @@ namespace Sales
             this.SubmitEP = new System.Windows.Forms.ErrorProvider(this.components);
             this.CancelB = new System.Windows.Forms.Button();
             this.SubmitB = new System.Windows.Forms.Button();
+            this.MaterialBox = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -171,7 +172,7 @@ namespace Sales
             // 
             // LoadB
             // 
-            this.LoadB.Location = new System.Drawing.Point(346, 127);
+            this.LoadB.Location = new System.Drawing.Point(348, 172);
             this.LoadB.Name = "LoadB";
             this.LoadB.Size = new System.Drawing.Size(75, 23);
             this.LoadB.TabIndex = 13;
@@ -185,7 +186,7 @@ namespace Sales
             // CancelB
             // 
             this.CancelB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.CancelB.Location = new System.Drawing.Point(73, 127);
+            this.CancelB.Location = new System.Drawing.Point(63, 172);
             this.CancelB.Name = "CancelB";
             this.CancelB.Size = new System.Drawing.Size(75, 23);
             this.CancelB.TabIndex = 15;
@@ -194,19 +195,28 @@ namespace Sales
             // 
             // SubmitB
             // 
-            this.SubmitB.Location = new System.Drawing.Point(209, 127);
+            this.SubmitB.Location = new System.Drawing.Point(203, 172);
             this.SubmitB.Name = "SubmitB";
             this.SubmitB.Size = new System.Drawing.Size(75, 23);
             this.SubmitB.TabIndex = 16;
             this.SubmitB.Text = "Добавить";
             this.SubmitB.UseVisualStyleBackColor = true;
             // 
+            // MaterialBox
+            // 
+            this.MaterialBox.Location = new System.Drawing.Point(191, 143);
+            this.MaterialBox.Name = "MaterialBox";
+            this.MaterialBox.PlaceholderText = "Тип плёнки";
+            this.MaterialBox.Size = new System.Drawing.Size(100, 23);
+            this.MaterialBox.TabIndex = 17;
+            // 
             // AddProductDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 166);
+            this.ClientSize = new System.Drawing.Size(496, 207);
             this.ControlBox = false;
+            this.Controls.Add(this.MaterialBox);
             this.Controls.Add(this.SubmitB);
             this.Controls.Add(this.CancelB);
             this.Controls.Add(this.LoadB);
@@ -245,9 +255,9 @@ namespace Sales
         private System.Windows.Forms.ComboBox TypeBox;
         private System.Windows.Forms.OpenFileDialog ProductOFD;
         private System.Windows.Forms.Button LoadB;
-        private System.Windows.Forms.PictureBox PreviewPB;
         private System.Windows.Forms.ErrorProvider SubmitEP;
         private System.Windows.Forms.Button CancelB;
         private System.Windows.Forms.Button SubmitB;
+        private System.Windows.Forms.TextBox MaterialBox;
     }
 }

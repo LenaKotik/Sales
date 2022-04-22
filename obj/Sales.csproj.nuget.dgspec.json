@@ -50,9 +50,9 @@
               "target": "Package",
               "version": "[11.1.0, )"
             },
-            "MySql.Data": {
+            "SFML.Net": {
               "target": "Package",
-              "version": "[8.0.28, )"
+              "version": "[2.5.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",

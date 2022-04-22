@@ -1,0 +1,7 @@
+CREATE TABLE History
+(
+	time_ DATETIME NOT NULL,
+	user_ VARCHAR(30) NOT NULL,
+	product NVARCHAR(50) NOT NULL,
+	CONSTRAINT PK_History_time_ PRIMARY KEY(time_)
+);
