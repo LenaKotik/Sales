@@ -37,6 +37,7 @@ namespace Sales
             this.StatisticsView = new System.Windows.Forms.DataGridView();
             this.DeleteHistoryButton = new System.Windows.Forms.Button();
             this.DeleteUserButton = new System.Windows.Forms.Button();
+            this.ReloadButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StatisticsView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,12 +125,23 @@ namespace Sales
             this.DeleteUserButton.Text = "Удалить пользователя";
             this.DeleteUserButton.UseVisualStyleBackColor = false;
             // 
+            // ReloadButton
+            // 
+            this.ReloadButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReloadButton.Location = new System.Drawing.Point(348, 365);
+            this.ReloadButton.Name = "ReloadButton";
+            this.ReloadButton.Size = new System.Drawing.Size(119, 38);
+            this.ReloadButton.TabIndex = 9;
+            this.ReloadButton.Text = "Обновить";
+            this.ReloadButton.UseVisualStyleBackColor = true;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(800, 635);
+            this.Controls.Add(this.ReloadButton);
             this.Controls.Add(this.DeleteUserButton);
             this.Controls.Add(this.DeleteHistoryButton);
             this.Controls.Add(this.StatisticsView);
@@ -157,5 +169,6 @@ namespace Sales
         private System.Windows.Forms.DataGridView StatisticsView;
         private System.Windows.Forms.Button DeleteHistoryButton;
         private System.Windows.Forms.Button DeleteUserButton;
+        private System.Windows.Forms.Button ReloadButton;
     }
 }

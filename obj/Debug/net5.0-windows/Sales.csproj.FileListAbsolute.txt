@@ -99,3 +99,5 @@ D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x86\native
 D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x86\native\csfml-System.dll
 D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x86\native\csfml-Window.dll
 D:\ProjectRoot\CSharpProj\Sales\bin\Debug\net5.0-windows\runtimes\win-x86\native\openal32.dll
+D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.PasswordConfirmationDialog.resources
+D:\ProjectRoot\CSharpProj\Sales\obj\Debug\net5.0-windows\Sales.UserDeletionDialog.resources

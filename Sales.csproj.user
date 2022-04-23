@@ -16,7 +16,13 @@
     <Compile Update="Header.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="PasswordConfirmationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserDeletionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

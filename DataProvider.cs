@@ -82,7 +82,17 @@ namespace Sales
         }
         public static void DeleteUser()
         {
-
+            if (new PasswordConfirmationDialog().ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+            UserDeletionDialog dialog = new();
+            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+            string code = dialog.Code;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new($"DELETE FROM Users WHERE code = '{code}'; ", conn);
+                if (cmd.ExecuteNonQuery() != 1)
+                    System.Windows.Forms.MessageBox.Show("Указанный пользователь не найден", "Ошибка", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+            }
         }
         #endregion
         #region History
@@ -115,7 +125,13 @@ namespace Sales
         }
         public static void DeleteHistory()
         {
-
+            if (new PasswordConfirmationDialog().ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new("DELETE FROM History;", conn);
+                cmd.ExecuteNonQuery();
+            }
         }
         #endregion
         #region Materials

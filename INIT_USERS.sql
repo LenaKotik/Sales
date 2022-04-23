@@ -5,7 +5,7 @@
 CREATE TABLE Users(
 		id INT IDENTITY NOT NULL,
 		username VARCHAR(30) DEFAULT(''),
-		code VARCHAR(7) NOT NULL,
+		code CHAR(7) NOT NULL,
 		password NVARCHAR(30) NOT NULL,
 		is_admin BIT NOT NULL DEFAULT(0),
 		CONSTRAINT UN_Users_code UNIQUE(code),
