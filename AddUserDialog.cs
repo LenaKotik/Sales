@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿// Made by LenaKotik
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sales
@@ -75,7 +70,7 @@ namespace Sales
             }
             if (!anyErr)
             {
-                User u = new User() { Code = code, Name = name, IsAdmin = IsAdminFlag.Checked, Password = pass };
+                User u = new User() { Code = code, Name = name, IsAdmin = IsAdminFlag.Checked, Password = pass, Branch = (byte)BranchUpDown.Value };
                 DataProvider.AddUser(u);
                 this.Close();
             }

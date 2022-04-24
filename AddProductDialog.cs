@@ -1,13 +1,7 @@
-﻿using System;
+﻿// Made by LenaKotik
+using System;
 using System.IO;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sales
@@ -43,9 +37,14 @@ namespace Sales
                 list.Add("Добавить...");
                 TypeBox.DataSource = list; 
             };
-            TypeBox.SelectedValueChanged += (o, e) => ComboBoxChanged(TypeBox, TypeNVBox);
+            TypeBox.SelectedValueChanged += (o, e) =>
+            {
+                DeleteButton.Visible = TypeBox.SelectedValue?.ToString() != "Добавить...";
+                ComboBoxChanged(TypeBox, TypeNVBox);
+            };
             #endregion
             SubmitB.Click += Submit;
+            DeleteButton.Click += (o, e) => DataProvider.DeleteProduct(new Product("","","","",$"Models\\{DeviceBox.SelectedValue}\\{VendorBox.SelectedValue}\\{ModelBox.SelectedValue}\\{TypeBox.SelectedValue}.eps" ));// only the path is necceseary
             LoadB.Click += (o,e) => ProductOFD.ShowDialog();
             CancelB.Click += (o, e) => this.Close();
             ProductOFD.FileOk += LoadImage;

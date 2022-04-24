@@ -101,3 +101,5 @@ D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\runtimes\win-x86\nati
 D:\ProjectRoot\CSharpProj\Sales\bin\Release\net5.0-windows\runtimes\win-x86\native\openal32.dll
 D:\ProjectRoot\CSharpProj\Sales\obj\Release\net5.0-windows\Sales.PasswordConfirmationDialog.resources
 D:\ProjectRoot\CSharpProj\Sales\obj\Release\net5.0-windows\Sales.UserDeletionDialog.resources
+D:\ProjectRoot\CSharpProj\Sales\obj\Release\net5.0-windows\Sales.StorageItemControl.resources
+D:\ProjectRoot\CSharpProj\Sales\obj\Release\net5.0-windows\Sales.StorageManager.resources

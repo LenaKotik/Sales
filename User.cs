@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
+﻿// Made by LenaKotik
 namespace Sales
 {
     public class User
@@ -12,6 +6,7 @@ namespace Sales
         public string Name { set; get; }
         public string Code { set; get; }
         public string Password { set; get; }
+        public byte Branch { set; get; }
         public bool IsAdmin { set; get; }
         /// <summary>
         /// index of the color do draw the profile with, calculated from user's code

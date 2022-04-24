@@ -38,7 +38,11 @@ namespace Sales
             this.DeleteHistoryButton = new System.Windows.Forms.Button();
             this.DeleteUserButton = new System.Windows.Forms.Button();
             this.ReloadButton = new System.Windows.Forms.Button();
+            this.CostumersView = new System.Windows.Forms.DataGridView();
+            this.OpenStorageButt = new System.Windows.Forms.Button();
+            this.DeleteCostumersButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.StatisticsView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CostumersView)).BeginInit();
             this.SuspendLayout();
             // 
             // HistLabel
@@ -135,12 +139,46 @@ namespace Sales
             this.ReloadButton.Text = "Обновить";
             this.ReloadButton.UseVisualStyleBackColor = true;
             // 
+            // CostumersView
+            // 
+            this.CostumersView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CostumersView.Location = new System.Drawing.Point(391, 41);
+            this.CostumersView.Name = "CostumersView";
+            this.CostumersView.RowTemplate.Height = 25;
+            this.CostumersView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.CostumersView.Size = new System.Drawing.Size(251, 226);
+            this.CostumersView.TabIndex = 10;
+            // 
+            // OpenStorageButt
+            // 
+            this.OpenStorageButt.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OpenStorageButt.Location = new System.Drawing.Point(22, 173);
+            this.OpenStorageButt.Name = "OpenStorageButt";
+            this.OpenStorageButt.Size = new System.Drawing.Size(229, 38);
+            this.OpenStorageButt.TabIndex = 11;
+            this.OpenStorageButt.Text = "Склад";
+            this.OpenStorageButt.UseVisualStyleBackColor = true;
+            // 
+            // DeleteCostumersButton
+            // 
+            this.DeleteCostumersButton.BackColor = System.Drawing.Color.Red;
+            this.DeleteCostumersButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteCostumersButton.Location = new System.Drawing.Point(22, 278);
+            this.DeleteCostumersButton.Name = "DeleteCostumersButton";
+            this.DeleteCostumersButton.Size = new System.Drawing.Size(294, 38);
+            this.DeleteCostumersButton.TabIndex = 13;
+            this.DeleteCostumersButton.Text = "Очистить список покупателей";
+            this.DeleteCostumersButton.UseVisualStyleBackColor = false;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(800, 635);
+            this.Controls.Add(this.DeleteCostumersButton);
+            this.Controls.Add(this.OpenStorageButt);
+            this.Controls.Add(this.CostumersView);
             this.Controls.Add(this.ReloadButton);
             this.Controls.Add(this.DeleteUserButton);
             this.Controls.Add(this.DeleteHistoryButton);
@@ -155,6 +193,7 @@ namespace Sales
             this.Text = "AdminForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.StatisticsView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CostumersView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -170,5 +209,8 @@ namespace Sales
         private System.Windows.Forms.Button DeleteHistoryButton;
         private System.Windows.Forms.Button DeleteUserButton;
         private System.Windows.Forms.Button ReloadButton;
+        private System.Windows.Forms.DataGridView CostumersView;
+        private System.Windows.Forms.Button OpenStorageButt;
+        private System.Windows.Forms.Button DeleteCostumersButton;
     }
 }

@@ -1,26 +1,14 @@
-﻿using System;
-using System.ComponentModel;
+﻿// Made by LenaKotik
+using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 #nullable enable
 
 namespace Sales
 {
-    struct Entry
-    {
-        [DisplayName("Время")]
-        public DateTime time { set; get; }
-        [DisplayName("Пользователь")]
-        public string userCode { set; get; }
-        [DisplayName("Модель")]
-        public string product { set; get; }
-        public override string ToString() =>
-            $"Пользователь [{userCode}] распечатал \'{product}\' в {time} по МСК";
-    }
     /// <summary>
     /// Class for managing exterior data, load data from the database or from a file
     /// (Yay, no longer a stub)
@@ -42,6 +30,20 @@ namespace Sales
             => GetDirectories("Models\\" + device + '\\' + vendor + '\\');
         public static List<string> GetTypeData(string device, string vendor, string model)
             => Directory.Exists("Models\\" + device + '\\' + vendor + '\\' + model)? Directory.GetFiles("Models\\" + device + '\\' + vendor + '\\' + model, "*.eps").Select(x => Path.GetFileNameWithoutExtension(x)).ToList() : new List<string>();
+        public static void DeleteProduct(Product pr)
+        {
+            if (!File.Exists(pr.Filepath)) return;
+            File.Delete(pr.Filepath);
+            pr.Filepath = pr.Filepath.Remove(pr.Filepath.LastIndexOf('\\'));
+            if (Directory.GetFiles(pr.Filepath).Length == 0)
+            {
+                while (Directory.GetDirectories(pr.Filepath).Length == 0)
+                {
+                    Directory.Delete(pr.Filepath);
+                    pr.Filepath = pr.Filepath.Remove(pr.Filepath.LastIndexOf('\\'));
+                }
+            }
+        }
 
         /// <returns>null if such product does not exist, otherwise - the existing product</returns>
         public static Product? SearchProduct(string Device, string Vendor, string Model, string Type)
@@ -55,7 +57,7 @@ namespace Sales
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
-                SqlCommand cmd = new($"INSERT INTO Users VALUES('{u.Name}', '{u.Code}', '{u.Password}', {(u.IsAdmin?1:0)}); ", conn);
+                SqlCommand cmd = new($"INSERT INTO Users VALUES('{u.Name}','{u.Code}','{u.Password}',{u.Branch},{(u.IsAdmin?1:0)}); ", conn);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -82,16 +84,16 @@ namespace Sales
         }
         public static void DeleteUser()
         {
-            if (new PasswordConfirmationDialog().ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+            if (new PasswordConfirmationDialog().ShowDialog() != DialogResult.OK) return;
             UserDeletionDialog dialog = new();
-            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+            if (dialog.ShowDialog() != DialogResult.OK) return;
             string code = dialog.Code;
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
                 SqlCommand cmd = new($"DELETE FROM Users WHERE code = '{code}'; ", conn);
                 if (cmd.ExecuteNonQuery() != 1)
-                    System.Windows.Forms.MessageBox.Show("Указанный пользователь не найден", "Ошибка", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Warning);
+                    MessageBox.Show("Указанный пользователь не найден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         #endregion
@@ -125,7 +127,7 @@ namespace Sales
         }
         public static void DeleteHistory()
         {
-            if (new PasswordConfirmationDialog().ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+            if (new PasswordConfirmationDialog().ShowDialog() != DialogResult.OK) return;
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
@@ -151,6 +153,84 @@ namespace Sales
             {
                 conn.Open();
                 SqlCommand cmd = new(exists? $"UPDATE Materials SET material_name = N'{mat}' WHERE product = N'{pr}'" : $"INSERT INTO Materials VALUES (N'{pr}', N'{mat}'); ", conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        #endregion
+        #region Costumers
+        public static void AddCostumer(Costumer c)
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new($"INSERT INTO Costumers VALUES ('{c.Phone}', N'{c.Name}')", conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public static void DeleteCostumers()
+        {
+            if (new PasswordConfirmationDialog().ShowDialog() != DialogResult.OK) return;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new("DELETE FROM Costumers", conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public static List<Costumer> GetCostumers()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new("SELECT phone, name FROM Costumers", conn);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                List<Costumer> res = new();
+                while (rdr.Read())
+                    res.Add(new Costumer()
+                    {
+                        Phone = (string)rdr["phone"],
+                        Name = (string)rdr["name"]
+                    });
+                return res;
+            }
+        }
+        #endregion
+        #region Storage
+        public static List<StorageItem> GetStorageItems(byte branch)
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new($"SELECT material_name, amount FROM Storage WHERE branch = {branch}", conn);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                List<StorageItem> res = new List<StorageItem>();
+                while (rdr.Read())
+                    res.Add(new StorageItem()
+                    {
+                        Material = (string)rdr["material_name"],
+                        Amount = (short)rdr["amount"]
+                    });
+                return res;
+            }
+        }
+        public static void DecrementAmount(byte branch, string material)
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new($"UPDATE Storage SET amount = amount-1 WHERE branch = {branch} AND material_name = N'{material}'; ", conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public static void UpdateStorage(byte branch, List<StorageItem> items)
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new($"DELETE FROM Storage WHERE branch = {branch}; INSERT INTO Storage VALUES\n", conn);
+                foreach (StorageItem item in items)
+                    cmd.CommandText += $"({branch}, N'{item.Material}', {item.Amount}),";
+                cmd.CommandText = cmd.CommandText.Remove(cmd.CommandText.Length - 1) + ';';
                 cmd.ExecuteNonQuery();
             }
         }

@@ -34,6 +34,7 @@ namespace Sales
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label5;
             this.AddUserErr = new System.Windows.Forms.ErrorProvider(this.components);
             this.AddButton = new System.Windows.Forms.Button();
             this.IsAdminFlag = new System.Windows.Forms.CheckBox();
@@ -42,11 +43,14 @@ namespace Sales
             this.PassBox2 = new System.Windows.Forms.TextBox();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.CancelvButton = new System.Windows.Forms.Button();
+            this.BranchUpDown = new System.Windows.Forms.NumericUpDown();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AddUserErr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BranchUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -78,12 +82,21 @@ namespace Sales
             // 
             // label4
             // 
-            label4.Location = new System.Drawing.Point(192, 9);
+            label4.Location = new System.Drawing.Point(30, 181);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(100, 22);
+            label4.Size = new System.Drawing.Size(117, 22);
             label4.TabIndex = 8;
             label4.Text = "Имя";
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            label5.Location = new System.Drawing.Point(206, 65);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(58, 18);
+            label5.TabIndex = 12;
+            label5.Text = "Филиал";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddUserErr
             // 
@@ -91,7 +104,7 @@ namespace Sales
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(206, 115);
+            this.AddButton.Location = new System.Drawing.Point(194, 175);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 23);
             this.AddButton.TabIndex = 0;
@@ -101,7 +114,7 @@ namespace Sales
             // IsAdminFlag
             // 
             this.IsAdminFlag.AutoSize = true;
-            this.IsAdminFlag.Location = new System.Drawing.Point(206, 85);
+            this.IsAdminFlag.Location = new System.Drawing.Point(206, 33);
             this.IsAdminFlag.Name = "IsAdminFlag";
             this.IsAdminFlag.Size = new System.Drawing.Size(63, 19);
             this.IsAdminFlag.TabIndex = 2;
@@ -133,28 +146,42 @@ namespace Sales
             // 
             // NameBox
             // 
-            this.NameBox.Location = new System.Drawing.Point(192, 34);
+            this.NameBox.Location = new System.Drawing.Point(30, 206);
             this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(100, 23);
+            this.NameBox.Size = new System.Drawing.Size(117, 23);
             this.NameBox.TabIndex = 9;
             // 
             // CancelvButton
             // 
             this.CancelvButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.CancelvButton.Location = new System.Drawing.Point(206, 146);
+            this.CancelvButton.Location = new System.Drawing.Point(194, 206);
             this.CancelvButton.Name = "CancelvButton";
             this.CancelvButton.Size = new System.Drawing.Size(75, 23);
             this.CancelvButton.TabIndex = 10;
             this.CancelvButton.Text = "Отмена";
             this.CancelvButton.UseVisualStyleBackColor = false;
             // 
+            // BranchUpDown
+            // 
+            this.BranchUpDown.Location = new System.Drawing.Point(206, 86);
+            this.BranchUpDown.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.BranchUpDown.Name = "BranchUpDown";
+            this.BranchUpDown.Size = new System.Drawing.Size(58, 23);
+            this.BranchUpDown.TabIndex = 11;
+            // 
             // AddUserDialog
             // 
             this.AcceptButton = this.AddButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 186);
+            this.ClientSize = new System.Drawing.Size(317, 232);
             this.ControlBox = false;
+            this.Controls.Add(label5);
+            this.Controls.Add(this.BranchUpDown);
             this.Controls.Add(this.CancelvButton);
             this.Controls.Add(this.NameBox);
             this.Controls.Add(label4);
@@ -171,6 +198,7 @@ namespace Sales
             this.Text = "Добавить Пользователя";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.AddUserErr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BranchUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +214,6 @@ namespace Sales
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.Button CancelvButton;
+        private System.Windows.Forms.NumericUpDown BranchUpDown;
     }
 }

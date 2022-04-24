@@ -48,6 +48,7 @@ namespace Sales
             this.CancelB = new System.Windows.Forms.Button();
             this.SubmitB = new System.Windows.Forms.Button();
             this.MaterialBox = new System.Windows.Forms.TextBox();
+            this.DeleteButton = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -185,7 +186,7 @@ namespace Sales
             // 
             // CancelB
             // 
-            this.CancelB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.CancelB.BackColor = System.Drawing.Color.Red;
             this.CancelB.Location = new System.Drawing.Point(63, 172);
             this.CancelB.Name = "CancelB";
             this.CancelB.Size = new System.Drawing.Size(75, 23);
@@ -210,12 +211,23 @@ namespace Sales
             this.MaterialBox.Size = new System.Drawing.Size(100, 23);
             this.MaterialBox.TabIndex = 17;
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BackColor = System.Drawing.Color.Red;
+            this.DeleteButton.Location = new System.Drawing.Point(348, 127);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteButton.TabIndex = 18;
+            this.DeleteButton.Text = "Удалить";
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            // 
             // AddProductDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(496, 207);
             this.ControlBox = false;
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.MaterialBox);
             this.Controls.Add(this.SubmitB);
             this.Controls.Add(this.CancelB);
@@ -259,5 +271,6 @@ namespace Sales
         private System.Windows.Forms.Button CancelB;
         private System.Windows.Forms.Button SubmitB;
         private System.Windows.Forms.TextBox MaterialBox;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }

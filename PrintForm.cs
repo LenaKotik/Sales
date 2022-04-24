@@ -1,16 +1,10 @@
-﻿using System;
+﻿// Made by LenaKotik
+using System;
 using System.IO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ImageMagick;
-using ImageMagick.Formats;
 
 namespace Sales
 {
@@ -20,6 +14,7 @@ namespace Sales
         Image? image;
 #nullable restore
         Product prod_cache;
+        string material_cache;
         public PrintForm()
         {
             int sideOffset = 500;
@@ -76,6 +71,7 @@ namespace Sales
                      Model = ModelBox.SelectedItem?.ToString() ?? "",
                      Type = TypeBox.SelectedItem?.ToString() ?? "";
             Product? pr = DataProvider.SearchProduct(Device, Vendor, Model, Type);
+            string Material = DataProvider.GetMaterial(pr.Value) ?? "[Нет данных]";
             if (pr.HasValue)
             {
                 LoadImage(pr.Value);
@@ -83,10 +79,11 @@ namespace Sales
                 VendorLabel.Text = "Производитель:\n" + Vendor;
                 ModelLabel.Text = "Модель:\n" + Model;
                 TypeLabel.Text = "Тип:\n" + Type;
-                MaterialLabel.Text = "Плёнка:\n" + (DataProvider.GetMaterial(pr.Value) ?? "[Нет данных]");
+                MaterialLabel.Text = "Плёнка:\n" + Material;
             }
             else
                 PreviewErr.SetError(LeftPanel, "Продукт по указанным данным не найден");
+            material_cache = Material;
         }
         private void Print(object sender, EventArgs e)
         {
@@ -103,6 +100,12 @@ namespace Sales
             {
                 pd.Print();
                 DataProvider.PushEntry(prod_cache);
+                DataProvider.DecrementAmount(Program.user.Branch, material_cache);
+                DataProvider.AddCostumer(new Costumer()
+                {
+                    Phone = ClientPhoneBox.Text,
+                    Name = ClientNameBox.Text
+                });
             }
         }
 #nullable restore
