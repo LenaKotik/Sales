@@ -15,6 +15,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="GitProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
     <PackageReference Include="Magick.NET-Q8-AnyCPU" Version="11.1.0" />
     <PackageReference Include="SFML.Net" Version="2.5.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />

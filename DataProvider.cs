@@ -1,6 +1,5 @@
 ﻿// Made by LenaKotik
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
@@ -10,46 +9,10 @@ using System.Data.SqlClient;
 namespace Sales
 {
     /// <summary>
-    /// Class for managing exterior data, load data from the database or from a file
-    /// (Yay, no longer a stub)
+    /// Class for managing extern data, loads data to/from the database
     /// </summary>
     static class DataProvider
-    {
-        #region file system stuff
-        static List<string> GetDirectories(string path)
-        {
-            if (Directory.Exists(path))
-                return Directory.GetDirectories(path).Select(x => x.Replace(path, "")).ToList();
-            return new List<string>();
-        }
-        public static List<string> GetDeviceData() 
-            => GetDirectories("Models\\");
-        public static List<string> GetVendorData(string device)
-            => GetDirectories("Models\\" + device + '\\');
-        public static List<string> GetModelData(string device, string vendor)
-            => GetDirectories("Models\\" + device + '\\' + vendor + '\\');
-        public static List<string> GetTypeData(string device, string vendor, string model)
-            => Directory.Exists("Models\\" + device + '\\' + vendor + '\\' + model)? Directory.GetFiles("Models\\" + device + '\\' + vendor + '\\' + model, "*.eps").Select(x => Path.GetFileNameWithoutExtension(x)).ToList() : new List<string>();
-        public static void DeleteProduct(Product pr)
-        {
-            if (!File.Exists(pr.Filepath)) return;
-            File.Delete(pr.Filepath);
-            pr.Filepath = pr.Filepath.Remove(pr.Filepath.LastIndexOf('\\'));
-            if (Directory.GetFiles(pr.Filepath).Length == 0)
-            {
-                while (Directory.GetDirectories(pr.Filepath).Length == 0)
-                {
-                    Directory.Delete(pr.Filepath);
-                    pr.Filepath = pr.Filepath.Remove(pr.Filepath.LastIndexOf('\\'));
-                }
-            }
-        }
-
-        /// <returns>null if such product does not exist, otherwise - the existing product</returns>
-        public static Product? SearchProduct(string Device, string Vendor, string Model, string Type)
-            => new Product(Device, Vendor, Model, Type, "Models\\"+Device+'\\'+Vendor+'\\'+Model+'\\'+Type + ".eps");
-        #endregion
-        #region database stuff
+    {  
         static readonly string connStr = @"workstation id=qqqsales.mssql.somee.com;packet size=4096;user id=swagmav_SQLLogin_1;pwd=m1vbu3gz7c;data source=qqqsales.mssql.somee.com;persist security info=False;initial catalog=qqqsales";
         #region Users
         public static void AddUser(User u)
@@ -234,7 +197,6 @@ namespace Sales
                 cmd.ExecuteNonQuery();
             }
         }
-        #endregion
         #endregion
     }
 }

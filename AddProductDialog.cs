@@ -13,27 +13,27 @@ namespace Sales
         {
             InitializeComponent();
             #region mess
-            List<string> l = DataProvider.GetDeviceData();
+            List<string> l = FileProvider.GetDeviceData();
             l.Add("Добавить...");
             DeviceBox.DataSource = l;
             DeviceBox.SelectedValueChanged += (o, e) => 
             {
                 ComboBoxChanged(DeviceBox, DeviceNVBox);
-                List<string> list = DataProvider.GetVendorData(DeviceBox.SelectedValue?.ToString());
+                List<string> list = FileProvider.GetVendorData(DeviceBox.SelectedValue?.ToString());
                 list.Add("Добавить...");
                 VendorBox.DataSource = list;
             };
             VendorBox.SelectedValueChanged += (o, e) => 
             {
                 ComboBoxChanged(VendorBox, VendorNVBox); 
-                List<string> list = DataProvider.GetModelData(DeviceBox.SelectedValue?.ToString(), VendorBox.SelectedValue?.ToString());
+                List<string> list = FileProvider.GetModelData(DeviceBox.SelectedValue?.ToString(), VendorBox.SelectedValue?.ToString());
                 list.Add("Добавить...");
                 ModelBox.DataSource = list; 
             };
             ModelBox.SelectedValueChanged  += (o, e) => 
             { 
                 ComboBoxChanged(ModelBox, ModelNVBox); 
-                List<string> list = DataProvider.GetTypeData(DeviceBox.SelectedValue?.ToString(), VendorBox.SelectedValue?.ToString(), ModelBox.SelectedValue?.ToString());
+                List<string> list = FileProvider.GetTypeData(DeviceBox.SelectedValue?.ToString(), VendorBox.SelectedValue?.ToString(), ModelBox.SelectedValue?.ToString());
                 list.Add("Добавить...");
                 TypeBox.DataSource = list; 
             };
@@ -44,7 +44,7 @@ namespace Sales
             };
             #endregion
             SubmitB.Click += Submit;
-            DeleteButton.Click += (o, e) => DataProvider.DeleteProduct(new Product("","","","",$"Models\\{DeviceBox.SelectedValue}\\{VendorBox.SelectedValue}\\{ModelBox.SelectedValue}\\{TypeBox.SelectedValue}.eps" ));// only the path is necceseary
+            DeleteButton.Click += (o, e) => FileProvider.DeleteProduct(new Product("","","","",$"Models\\{DeviceBox.SelectedValue}\\{VendorBox.SelectedValue}\\{ModelBox.SelectedValue}\\{TypeBox.SelectedValue}.eps" ));// only the path is necceseary
             LoadB.Click += (o,e) => ProductOFD.ShowDialog();
             CancelB.Click += (o, e) => this.Close();
             ProductOFD.FileOk += LoadImage;

@@ -10,6 +10,7 @@ namespace Sales
         {
             InitializeComponent();
             ConfirmationB.Click += Confirm;
+            CancelButton.Click += (o, e) => this.Close();
         }
         private void Confirm(object sender, EventArgs e)
         {
