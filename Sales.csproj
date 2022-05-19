@@ -4,25 +4,32 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <Configurations>Debug;Release;MySqlRelease</Configurations>
   </PropertyGroup>
 
   <PropertyGroup>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants></DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
-
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MySqlRelease|AnyCPU'">
+	<DefineConstants>USE_MYSQL</DefineConstants>
+	<PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+	
   <ItemGroup>
     <Compile Remove="GitProvider.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
+    <!--
+	  <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
+	-->
     <PackageReference Include="Magick.NET-Q8-AnyCPU" Version="11.1.0" />
-    <PackageReference Include="SFML.Net" Version="2.5.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Condition="'$(Configuration)' == 'MySqlRelease'" Include="MySql.Data" Version="8.0.29" />
+    <PackageReference Condition="'$(Configuration)' != 'MySqlRelease'" Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
 </Project>

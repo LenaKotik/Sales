@@ -46,17 +46,9 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
-            "LibGit2Sharp": {
-              "target": "Package",
-              "version": "[0.26.2, )"
-            },
             "Magick.NET-Q8-AnyCPU": {
               "target": "Package",
               "version": "[11.1.0, )"
-            },
-            "SFML.Net": {
-              "target": "Package",
-              "version": "[2.5.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
