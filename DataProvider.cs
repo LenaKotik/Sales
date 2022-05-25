@@ -13,11 +13,13 @@ using System.Data.SqlClient;
 namespace Sales
 {
     /// <summary>
-    /// Class for managing extern data, loads data to/from the database
+    /// Класс для менеджмента внешних данных загружает данные в/из базы данных
     /// </summary>
     static class DataProvider
     {  
         static readonly string connStr = @"workstation id=qqqsales.mssql.somee.com;packet size=4096;user id=swagmav_SQLLogin_1;pwd=m1vbu3gz7c;data source=qqqsales.mssql.somee.com;persist security info=False;initial catalog=qqqsales";
+
+        // Эта область содержит методы для взаимодействия с таблицей 'Users' (см. INIT_USERS.sql)
         #region Users
 #if USE_MYSQL
         public static void AddUser(User u)
@@ -65,6 +67,7 @@ namespace Sales
             }
         }
 #else
+        // Добавить пользователя в таблицу 'Users'
         public static void AddUser(User u)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -74,7 +77,8 @@ namespace Sales
                 cmd.ExecuteNonQuery();
             }
         }
-        /// <returns>null if such user does not exist, otherwise - the user found</returns>
+        // Пробует найти пользователя по указанным коду и паролю
+        /// <returns>нулл, если пользователь не найден, в противном случае - найденный пользователь</returns>
         public static User? VerifyUser(string code, string password)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -82,7 +86,7 @@ namespace Sales
                 conn.Open();
                 SqlCommand cmd = new($"SELECT * FROM Users WHERE code = '{code}' AND password = '{password}'; ", conn);
                 SqlDataReader rdr = cmd.ExecuteReader();
-                // Deserialize into list
+                // Десериализовать в список
                 List<User> u = new List<User>();
                 while (rdr.Read())
                     u.Add(new User()
@@ -95,6 +99,8 @@ namespace Sales
                 return u.SingleOrDefault();
             }
         }
+        // Запросить у пользователя код и подтвердить его пароль, если всё правильно - удалить указанного пользователя
+        // Это нарушает принцип единой ответственности
         public static void DeleteUser()
         {
             if (new PasswordConfirmationDialog().ShowDialog() != DialogResult.OK) return;
@@ -111,6 +117,7 @@ namespace Sales
         }
 #endif
         #endregion
+        // Эта область содержит методы для взаимодействия с таблицей 'History' (см. INIT_HISTORY.sql)
         #region History
 #if USE_MYSQL
         public static List<Entry> GetHistory()
@@ -151,6 +158,7 @@ namespace Sales
             }
         }
 #else
+        /// <returns> вся таблица </returns>
         public static List<Entry> GetHistory()
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -169,6 +177,7 @@ namespace Sales
                 return e;
             }
         }
+        // Добавляет запись в таблицу, используя зарегистрированного пользователя, переданный продукт и текущее время
         public static void PushEntry(Product pr)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -178,6 +187,7 @@ namespace Sales
                 cmd.ExecuteNonQuery();
             }
         }
+        // Сначала подтверждает пароль пользователя, затем очищает всю таблицу
         public static void DeleteHistory()
         {
             if (new PasswordConfirmationDialog().ShowDialog() != DialogResult.OK) return;
@@ -190,6 +200,8 @@ namespace Sales
         }
 #endif
         #endregion
+
+        // Эта область содержит методы для взаимодействия с таблицей 'Materials' (см. INIT_MATERIALS.sql)
         #region Materials
 #if USE_MYSQL
         public static string? GetMaterial(Product pr)
@@ -213,6 +225,7 @@ namespace Sales
         }
 
 #else
+        /// <returns> имя материала, связанного с данным продуктом, если такого нет - нулл </returns>
         public static string? GetMaterial(Product pr)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -222,7 +235,8 @@ namespace Sales
                 return cmd.ExecuteScalar()?.ToString();
             }
         }
-        /// <param name="exists">if true, updates an existing entry, otherwise - creates a new one</param>
+        // устанавливает строку материала для переданного продукта
+        /// <param name="exists"> если правда - обновляет существующую запись, в противном случае - создает новую  </param>
         public static void SetMaterial(Product pr, string mat, bool exists)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -234,6 +248,7 @@ namespace Sales
         }
 #endif
         #endregion
+        // Эта область содержит методы для взаимодействия с таблицей 'Costumers' (см. INIT_COSTUMERS.sql)
         #region Costumers
 #if USE_MYSQL
         public static void AddCostumer(Costumer c)
@@ -273,6 +288,7 @@ namespace Sales
             }
         }
 #else
+        // Добавляет указанного клиента в таблицу
         public static void AddCostumer(Costumer c)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -282,6 +298,7 @@ namespace Sales
                 cmd.ExecuteNonQuery();
             }
         }
+        // Подтверждает пароль пользователя, затем очищает таблицу
         public static void DeleteCostumers()
         {
             if (new PasswordConfirmationDialog().ShowDialog() != DialogResult.OK) return;
@@ -292,6 +309,7 @@ namespace Sales
                 cmd.ExecuteNonQuery();
             }
         }
+        /// <returns> вся таблица </returns>
         public static List<Costumer> GetCostumers()
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -311,6 +329,7 @@ namespace Sales
         }
 #endif
         #endregion
+        // Эта область содержит методы для взаимодействия с таблицей 'Storage' (см. INIT_STORAGE.sql)
         #region Storage
 #if USE_MYSQL
         public static List<StorageItem> GetStorageItems(byte branch)
@@ -352,6 +371,7 @@ namespace Sales
             }
         }
 #else
+        /// <returns> все записи связанные с указанным филиалом </returns>
         public static List<StorageItem> GetStorageItems(byte branch)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -369,6 +389,8 @@ namespace Sales
                 return res;
             }
         }
+
+        // удаляет одну единицу указанного материала из указанного филиала
         public static void DecrementAmount(byte branch, string material)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -378,6 +400,8 @@ namespace Sales
                 cmd.ExecuteNonQuery();
             }
         }
+        // Сначала удаляет все записи, связанные с указанным филиалом, потом добавляет все переданные записи в таблицу
+        // Все переданные записи форматируются в одну строку запроса, поэтому есть шанс, что возникнут проблемы, если передать слишком много
         public static void UpdateStorage(byte branch, List<StorageItem> items)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
